@@ -1,0 +1,9 @@
+<div id="lang-select">
+  <button @click="changeLangInd('down')"></button>
+  <transition name="fade" mode="out-in">
+    <span :key="currentLang">{{currentLang}}</span>
+  </transition>
+  <button @click="changeLangInd('up')"></button>
+  <button	v-show="codeReady" @click="doCopy"	id="copy"></button>
+  <a v-show="codeReady" href="mailto:?subject=Code%20for%20the%2015%20puzzle"><button id="email"></button></a>
+</div>

@@ -1,0 +1,20 @@
+<div :class="{ codeOverlay: !codeReady }" id="copy-email">
+</div>
+<div :class="{ blurry: !codeReady }" ref="code" id="code">
+  <template v-if="currentLang === 'HTML'">
+    <code-html :image-width="basic.imageWidth" :image-height="basic.imageHeight"></code-html>
+    <code-html-helper-image :path="additional.path" v-if="additional.helperImage"></code-html-helper-image>
+  </template>
+  <template v-if="currentLang === 'CSS'">
+    <code-css :color="basic.color" :image-width="basic.imageWidth"></code-css>
+    <code-css-helper-image :helper-image-width="helperImageWidth" v-if="additional.helperImage"></code-css-helper-image>
+  </template>
+  <template v-if="currentLang.includes('J')">
+    <code-js
+    :path="additional.path"
+    :tiles-wide="basic.widthTiles"
+    :tiles-high="basic.heightTiles"
+    :tile-size="tileSize"
+    ></code-js>
+  </template>
+</div>
