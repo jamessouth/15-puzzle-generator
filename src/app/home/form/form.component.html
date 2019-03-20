@@ -7,8 +7,12 @@
       <label>Image Height in pixels: <input v-model.number="basic.imageHeight" class="num" form="form" placeholder="Enter a number" min="0" type="number"/></label>
       <p class="warning" v-show="imageDimensionsNotEntered">Please enter numbers for width and height.</p>
       <p id="puzz">Puzzle Dimensions:</p>
-      <input-sel v-model.number="basic.widthTiles" label="Width in tiles:"></input-sel>
-      <input-sel v-model.number="basic.heightTiles" label="Height in tiles:"></input-sel>
+
+
+      <app-dropdown [label]="'Width in tiles:'"></app-dropdown>
+      <app-dropdown [label]="'Height in tiles:'"></app-dropdown>
+
+
       <p class="warning" v-show="tilesAreNotSquare">For the tiles to be square, the ratios of pixels to tiles for width and height must be equal.&nbsp;&nbsp;Current ratios:&nbsp;&nbsp;Width: {{tileSize.toFixed(2)}}, Height: {{heightRatio.toFixed(2)}}</p>
       <p class="warning" v-show="hasRemainderPixels">The number of tiles must divide evenly into the size in pixels in the given dimension.&nbsp;&nbsp;Trim the image or use a different number of tiles.</p>
       <p>The canvas will have the same dimensions as the image you use.&nbsp;&nbsp;Edit your image as necessary such that each tile will be the same size with no remainder pixels.</p>

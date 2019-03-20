@@ -10,6 +10,12 @@ import { LanguageSelectComponent } from './home/language-select/language-select.
 import { CodeComponent } from './home/code/code.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { DemoComponent } from './demo/demo.component';
+import { DropdownComponent } from './home/form/dropdown/dropdown.component';
+import { CodeHtmlComponent } from './home/code/code-html/code-html.component';
+import { CodeCssComponent } from './home/code/code-css/code-css.component';
+import { CodeJsComponent } from './home/code/code-js/code-js.component';
+import { CodeCssHelperImageComponent } from './home/code/code-css-helper-image/code-css-helper-image.component';
+import { CodeHtmlHelperImageComponent } from './home/code/code-html-helper-image/code-html-helper-image.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,12 @@ import { DemoComponent } from './demo/demo.component';
     CodeComponent,
     FooterComponent,
     DemoComponent,
+    DropdownComponent,
+    CodeHtmlComponent,
+    CodeCssComponent,
+    CodeJsComponent,
+    CodeCssHelperImageComponent,
+    CodeHtmlHelperImageComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,19 +2,19 @@
 </div>
 <div :class="{ blurry: !codeReady }" ref="code" id="code">
   <template v-if="currentLang === 'HTML'">
-    <code-html :image-width="basic.imageWidth" :image-height="basic.imageHeight"></code-html>
-    <code-html-helper-image :path="additional.path" v-if="additional.helperImage"></code-html-helper-image>
+    <app-code-html :image-width="basic.imageWidth" :image-height="basic.imageHeight"></app-code-html>
+    <app-code-html-helper-image :path="additional.path" v-if="additional.helperImage"></app-code-html-helper-image>
   </template>
   <template v-if="currentLang === 'CSS'">
-    <code-css :color="basic.color" :image-width="basic.imageWidth"></code-css>
-    <code-css-helper-image :helper-image-width="helperImageWidth" v-if="additional.helperImage"></code-css-helper-image>
+    <app-code-css :color="basic.color" :image-width="basic.imageWidth"></app-code-css>
+    <app-code-css-helper-image :helper-image-width="helperImageWidth" v-if="additional.helperImage"></app-code-css-helper-image>
   </template>
   <template v-if="currentLang.includes('J')">
-    <code-js
+    <app-code-js
     :path="additional.path"
     :tiles-wide="basic.widthTiles"
     :tiles-high="basic.heightTiles"
     :tile-size="tileSize"
-    ></code-js>
+    ></app-code-js>
   </template>
 </div>

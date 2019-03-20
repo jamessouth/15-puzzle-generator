@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageSelectComponent implements OnInit {
 
+  currentIndex = 0;
+  languages = ['HTML', 'CSS', 'JS'];
+  currentLang = this.languages[this.currentIndex % 3];
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
+  changeLang(dir: string) {
+    if (dir === 'r') {
+      this.currentIndex++;
+    } else {
+      this.currentIndex--;
+      if (this.currentIndex < 0) {
+          this.currentIndex = 2;
+        }
+    }
+  }
+
+
 
 }
