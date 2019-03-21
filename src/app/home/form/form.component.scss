@@ -86,7 +86,14 @@ input[type="checkbox"]:checked:after{
   background-color: #0f8000;
 }
 
+label{
+  display: block;
+  text-align: center;
+}
 
+select{
+	margin-bottom: 1em;
+}
 
 
 .warning{

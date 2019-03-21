@@ -1,4 +1,4 @@
-<form>
+<form #optionsForm="ngForm">
   <div>
     <fieldset id="basics">
       <legend>Basic Puzzle</legend>
@@ -8,12 +8,20 @@
       <p class="warning" v-show="imageDimensionsNotEntered">Please enter numbers for width and height.</p>
       <p id="puzz">Puzzle Dimensions:</p>
 
+      <label>width
+        <select name="width" [ngModel]="width" (ngModelChange)="onChange($event)">
+          <option *ngFor="let num of nums">{{num}}</option>
+        </select>
+      </label>
 
-      <app-dropdown [label]="'Width in tiles:'"></app-dropdown>
-      <app-dropdown [label]="'Height in tiles:'"></app-dropdown>
+      <label>height
+        <select name="height" [ngModel]="height" (ngModelChange)="onChange($event)">
+          <option *ngFor="let num of nums">{{num}}</option>
+        </select>
+      </label>
 
 
-      <p class="warning" v-show="tilesAreNotSquare">For the tiles to be square, the ratios of pixels to tiles for width and height must be equal.&nbsp;&nbsp;Current ratios:&nbsp;&nbsp;Width: {{tileSize.toFixed(2)}}, Height: {{heightRatio.toFixed(2)}}</p>
+      <p class="warning" v-show="tilesAreNotSquare">For the tiles to be square, the ratios of pixels to tiles for width and height must be equal.&nbsp;&nbsp;Current ratios:&nbsp;&nbsp;Width: {{tileSize}}, Height: {{heightRatio}}</p>
       <p class="warning" v-show="hasRemainderPixels">The number of tiles must divide evenly into the size in pixels in the given dimension.&nbsp;&nbsp;Trim the image or use a different number of tiles.</p>
       <p>The canvas will have the same dimensions as the image you use.&nbsp;&nbsp;Edit your image as necessary such that each tile will be the same size with no remainder pixels.</p>
     </fieldset>

@@ -12,4 +12,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleVal(e) {
+    console.log(e);
+  }
+
+
 }
