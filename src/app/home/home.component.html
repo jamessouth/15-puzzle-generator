@@ -1,7 +1,11 @@
 <app-header></app-header>
 <main>
-  <app-form (width)="handleVal($event)" (height)="handleVal($event)"></app-form>
+  <app-form
+    (width)="handleWidth($event)"
+    (height)="handleHeight($event)"
+    (color)="handleColor($event)"
+  ></app-form>
   <app-language-select></app-language-select>
-  <app-code></app-code>
+  <app-code [width]="width" [height]="height" [color]="color"></app-code>
 </main>
 <app-footer></app-footer>

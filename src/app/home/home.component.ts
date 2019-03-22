@@ -6,15 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  width: number;
+  height: number;
+  color: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  handleVal(e) {
+  handleWidth(e) {
     console.log(e);
+    this.width = e;
   }
 
+  handleHeight(e) {
+    console.log(e);
+    this.height = e;
+  }
+
+  handleColor(e) {
+    this.color = e;
+  }
 
 }

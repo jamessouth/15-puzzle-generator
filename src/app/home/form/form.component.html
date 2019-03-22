@@ -1,21 +1,21 @@
-<form #optionsForm="ngForm">
+<form>
   <div>
     <fieldset id="basics">
       <legend>Basic Puzzle</legend>
-      <label>Color for the blank tile: <input v-model="basic.color" type="color" value="#0f8000"></label>
+      <label>Color for the blank tile: <input #color [ngModel]="color" (ngModelChange)="onColorChange(color.value)" name="color" type="color" value="#0f8000"></label>
       <label>Image Width in pixels: <input v-model.number="basic.imageWidth" class="num" form="form" placeholder="Enter a number" min="0" type="number"/></label>
       <label>Image Height in pixels: <input v-model.number="basic.imageHeight" class="num" form="form" placeholder="Enter a number" min="0" type="number"/></label>
       <p class="warning" v-show="imageDimensionsNotEntered">Please enter numbers for width and height.</p>
       <p id="puzz">Puzzle Dimensions:</p>
 
       <label>width
-        <select name="width" [ngModel]="width" (ngModelChange)="onChange($event)">
+        <select #width name="width" [ngModel]="width" (ngModelChange)="onWidthChange(width.value)">
           <option *ngFor="let num of nums">{{num}}</option>
         </select>
       </label>
 
       <label>height
-        <select name="height" [ngModel]="height" (ngModelChange)="onChange($event)">
+        <select #height name="height" [ngModel]="height" (ngModelChange)="onHeightChange(height.value)">
           <option *ngFor="let num of nums">{{num}}</option>
         </select>
       </label>
