@@ -1,11 +1,13 @@
 <app-header></app-header>
 <main>
   <app-form
-    (width)="handleWidth($event)"
-    (height)="handleHeight($event)"
+    (width_tiles)="handleWidthTiles($event)"
+    (width_pixels)="handleWidthPixels($event)"
+    (height_tiles)="handleHeightTiles($event)"
+    (height_pixels)="handleHeightPixels($event)"
     (color)="handleColor($event)"
   ></app-form>
   <app-language-select></app-language-select>
-  <app-code [width]="width" [height]="height" [color]="color"></app-code>
+  <app-code [width_tiles]="width_tiles" [width_pixels]="width_pixels" [height_tiles]="height_tiles" [height_pixels]="height_pixels" [color]="color"></app-code>
 </main>
 <app-footer></app-footer>

@@ -6,11 +6,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  @Output() width = new EventEmitter<number>();
-  @Output() height = new EventEmitter<number>();
-  @Output() color = new EventEmitter<string>('#0f8000');
+  @Output() width_tiles = new EventEmitter<number>();
+  @Output() width_pixels = new EventEmitter<number>();
+  @Output() height_tiles = new EventEmitter<number>();
+  @Output() height_pixels = new EventEmitter<number>();
+  @Output() color = new EventEmitter<string>();
 
-  // color = ;
   tileSize = null;
   heightRatio = null;
   nums = [2,3,4,5,6,7,8];
@@ -20,16 +21,22 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  onWidthChange(val) {
-    this.width.emit(val);
+  onWidthPixelsChange(val) {
+    this.width_pixels.emit(val);
   }
-  onHeightChange(val) {
-    this.height.emit(val);
+  onWidthTilesChange(val) {
+    this.width_tiles.emit(val);
+  }
+  onHeightPixelsChange(val) {
+    this.height_pixels.emit(val);
+  }
+  onHeightTilesChange(val) {
+    this.height_tiles.emit(val);
   }
   onColorChange(val) {
     this.color.emit(val);
   }
+
 
 
 }

@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  width: number;
-  height: number;
+  width_tiles: number;
+  width_pixels: number;
+  height_tiles: number;
+  height_pixels: number;
   color: string;
 
   constructor() { }
@@ -15,14 +17,24 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleWidth(e) {
+  handleWidthTiles(e) {
     console.log(e);
-    this.width = e;
+    this.width_tiles = e;
   }
 
-  handleHeight(e) {
+  handleWidthPixels(e) {
     console.log(e);
-    this.height = e;
+    this.width_pixels = e;
+  }
+
+  handleHeightTiles(e) {
+    console.log(e);
+    this.height_tiles = e;
+  }
+
+  handleHeightPixels(e) {
+    console.log(e);
+    this.height_pixels = e;
   }
 
   handleColor(e) {

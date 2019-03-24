@@ -6,8 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./code.component.scss']
 })
 export class CodeComponent implements OnInit {
-  @Input() width: number;
-  @Input() height: number;
+  @Input() width_tiles: number;
+  @Input() width_pixels: number;
+  @Input() height_tiles: number;
+  @Input() height_pixels: number;
   @Input() color: string;
 
   constructor() { }

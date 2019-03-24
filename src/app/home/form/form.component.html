@@ -2,22 +2,26 @@
   <div>
     <fieldset id="basics">
       <legend>Basic Puzzle</legend>
-      <label>Color for the blank tile: <input #color [ngModel]="color" (ngModelChange)="onColorChange(color.value)" name="color" type="color" value="#0f8000"></label>
-      <label>Image Width in pixels: <input v-model.number="basic.imageWidth" class="num" form="form" placeholder="Enter a number" min="0" type="number"/></label>
-      <label>Image Height in pixels: <input v-model.number="basic.imageHeight" class="num" form="form" placeholder="Enter a number" min="0" type="number"/></label>
+
+      <label>Color for the blank tile: <input #color [ngModel]="color" (ngModelChange)="onColorChange(color.value)" name="color" type="color"></label>
+
+      <label>Image Width in pixels: <input #width_pixels [ngModel]="width_pixels" class="num" (ngModelChange)="onWidthPixelsChange(width_pixels.value)" name="width_pixels" form="form" placeholder="Enter a number" min="0" type="number"/></label>
+      
+      <label>Image Height in pixels: <input #height_pixels [ngModel]="height_pixels" class="num" (ngModelChange)="onHeightPixelsChange(height_pixels.value)" name="height_pixels" form="form" placeholder="Enter a number" min="0" type="number"/></label>
+
       <p class="warning" v-show="imageDimensionsNotEntered">Please enter numbers for width and height.</p>
       <p id="puzz">Puzzle Dimensions:</p>
 
-      <label>width
-        <select #width name="width" [ngModel]="width" (ngModelChange)="onWidthChange(width.value)">
+      <label>Width:&nbsp;
+        <select #width_tiles name="width_tiles" [ngModel]="width_tiles" (ngModelChange)="onWidthTilesChange(width_tiles.value)">
           <option *ngFor="let num of nums">{{num}}</option>
-        </select>
+        </select>&nbsp;tiles
       </label>
 
-      <label>height
-        <select #height name="height" [ngModel]="height" (ngModelChange)="onHeightChange(height.value)">
+      <label>Height:&nbsp;
+        <select #height_tiles name="height_tiles" [ngModel]="height_tiles" (ngModelChange)="onHeightTilesChange(height_tiles.value)">
           <option *ngFor="let num of nums">{{num}}</option>
-        </select>
+        </select>&nbsp;tiles
       </label>
 
 
