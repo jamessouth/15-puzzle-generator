@@ -3,37 +3,38 @@
     <fieldset id="basics">
       <legend>Basic Puzzle</legend>
 
-      <label>Color for the blank tile: <input #color [ngModel]="color" (ngModelChange)="onColorChange(color.value)" name="color" type="color"></label>
+      <label>Color for the blank tile: <input #colorbox [ngModel]="color" (ngModelChange)="onColorChange(colorbox.value)" name="color" type="color"></label>
 
-      <label>Image Width in pixels: <input #width_pixels [ngModel]="width_pixels" class="num" (ngModelChange)="onWidthPixelsChange(width_pixels.value)" name="width_pixels" form="form" placeholder="Enter a number" min="0" type="number"/></label>
-      
-      <label>Image Height in pixels: <input #height_pixels [ngModel]="height_pixels" class="num" (ngModelChange)="onHeightPixelsChange(height_pixels.value)" name="height_pixels" form="form" placeholder="Enter a number" min="0" type="number"/></label>
+      <label>Image Width in pixels: <input #width_pixelsbox="ngModel" [ngModel]="width_pixels" class="num" (ngModelChange)="onWidthPixelsChange(width_pixelsbox.value)" name="width_pixels" form="form" placeholder="Enter a number" min="1" type="number"/></label>
 
-      <p class="warning" v-show="imageDimensionsNotEntered">Please enter numbers for width and height.</p>
+      <label>Image Height in pixels: <input #height_pixelsbox="ngModel" [ngModel]="height_pixels" class="num" (ngModelChange)="onHeightPixelsChange(height_pixelsbox.value)" name="height_pixels" form="form" placeholder="Enter a number" min="1" type="number"/></label>
+
+      <p class="warning" *ngIf="width_pixels.pristine || height_pixels.pristine">Please enter numbers for width and height.</p>
       <p id="puzz">Puzzle Dimensions:</p>
 
       <label>Width:&nbsp;
-        <select #width_tiles name="width_tiles" [ngModel]="width_tiles" (ngModelChange)="onWidthTilesChange(width_tiles.value)">
+        <select #width_tilesbox name="width_tiles" [ngModel]="width_tiles" (ngModelChange)="onWidthTilesChange(width_tilesbox.value)">
           <option *ngFor="let num of nums">{{num}}</option>
         </select>&nbsp;tiles
       </label>
-
+{{tileWidth}}, {{tileHeight}}
       <label>Height:&nbsp;
-        <select #height_tiles name="height_tiles" [ngModel]="height_tiles" (ngModelChange)="onHeightTilesChange(height_tiles.value)">
+        <select #height_tilesbox name="height_tiles" [ngModel]="height_tiles" (ngModelChange)="onHeightTilesChange(height_tilesbox.value)">
           <option *ngFor="let num of nums">{{num}}</option>
         </select>&nbsp;tiles
       </label>
 
 
-      <p class="warning" v-show="tilesAreNotSquare">For the tiles to be square, the ratios of pixels to tiles for width and height must be equal.&nbsp;&nbsp;Current ratios:&nbsp;&nbsp;Width: {{tileSize}}, Height: {{heightRatio}}</p>
-      <p class="warning" v-show="hasRemainderPixels">The number of tiles must divide evenly into the size in pixels in the given dimension.&nbsp;&nbsp;Trim the image or use a different number of tiles.</p>
+      <p class="warning" *ngIf="tileWidth !== tileHeight">Tiles must be square:&nbsp;&nbsp;Tile Width: {{tileWidth}}, Tile Height: {{tileHeight}}</p>
+      <p class="warning" *ngIf="hasLeftoverPxWide">The number of tiles wide must divide evenly into the width in pixels for there to not be any leftover.&nbsp;&nbsp;Please adjust the image or try a different number of tiles.</p>
+      <p class="warning" *ngIf="hasLeftoverPxHigh">The number of tiles high must divide evenly into the height in pixels for there to not be any leftover.&nbsp;&nbsp;Please adjust the image or try a different number of tiles.</p>
       <p>The canvas will have the same dimensions as the image you use.&nbsp;&nbsp;Edit your image as necessary such that each tile will be the same size with no remainder pixels.</p>
     </fieldset>
     <hr>
     <fieldset id="extras">
       <legend>Additional Features</legend>
-      <label>Relative path to your image: <input v-model="additional.path" placeholder="Optional" type="text"/></label>
-      <label>Add helper image: <input v-model="additional.helperImage" type="checkbox" name="help" value="image"/></label>
+      <label>Relative path to your image: <input #pathbox name="path" [ngModel]="path" (ngModelChange)="onPathChange(pathbox.value)" placeholder="Optional" type="text"/></label>
+      <label>Add helper image: <input #helperbox [ngModel]="helper_image" (ngModelChange)="onHelpImgChange(helperbox.value)" type="checkbox" name="help" value="image"/></label>
     </fieldset>
   </div>
 </form>

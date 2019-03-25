@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { OptionsService } from '../../options.service';
 
 @Component({
   selector: 'app-form',
@@ -6,20 +7,28 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+  @Input() tileWidth: number;
+  @Input() tileHeight: number;
+  @Input() hasLeftoverPxWide: boolean;
+  @Input() hasLeftoverPxHigh: boolean;
+
   @Output() width_tiles = new EventEmitter<number>();
   @Output() width_pixels = new EventEmitter<number>();
   @Output() height_tiles = new EventEmitter<number>();
   @Output() height_pixels = new EventEmitter<number>();
-  @Output() color = new EventEmitter<string>();
 
-  tileSize = null;
-  heightRatio = null;
   nums = [2,3,4,5,6,7,8];
+  color: string;
+  path: string;
 
-  constructor() { }
+  constructor(private data: OptionsService) { }
 
   ngOnInit() {
+    this.data.currentColor$.subscribe(color => this.color = color);
+    this.data.currentPath$.subscribe(path => this.path = path);
   }
+
+
 
   onWidthPixelsChange(val) {
     this.width_pixels.emit(val);
@@ -34,7 +43,10 @@ export class FormComponent implements OnInit {
     this.height_tiles.emit(val);
   }
   onColorChange(val) {
-    this.color.emit(val);
+    this.data.changeColor(val);
+  }
+  onPathChange(val) {
+    this.data.changePath(val);
   }
 
 

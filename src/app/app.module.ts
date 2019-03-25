@@ -16,6 +16,7 @@ import { CodeCssComponent } from './home/code/code-css/code-css.component';
 import { CodeJsComponent } from './home/code/code-js/code-js.component';
 import { CodeCssHelperImageComponent } from './home/code/code-css-helper-image/code-css-helper-image.component';
 import { CodeHtmlHelperImageComponent } from './home/code/code-html-helper-image/code-html-helper-image.component';
+import { OptionsService } from './options.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { CodeHtmlHelperImageComponent } from './home/code/code-html-helper-image
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    OptionsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

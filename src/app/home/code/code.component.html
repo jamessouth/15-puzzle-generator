@@ -1,10 +1,10 @@
-<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, </p>
+<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, {{path}}</p>
 <div :class="{ codeOverlay: !codeReady }" id="copy-email">
 </div>
 <div :class="{ blurry: !codeReady }" ref="code" id="code">
   <template v-if="currentLang === 'HTML'">
     <app-code-html :image-width="basic.imageWidth" :image-height="basic.imageHeight"></app-code-html>
-    <app-code-html-helper-image :path="additional.path" v-if="additional.helperImage"></app-code-html-helper-image>
+    <app-code-html-helper-image  v-if="additional.helperImage"></app-code-html-helper-image>
   </template>
   <template v-if="currentLang === 'CSS'">
     <app-code-css :color="basic.color" :image-width="basic.imageWidth"></app-code-css>
@@ -12,7 +12,7 @@
   </template>
   <template v-if="currentLang.includes('J')">
     <app-code-js
-    :path="additional.path"
+
     :tiles-wide="basic.widthTiles"
     :tiles-high="basic.heightTiles"
     :tile-size="tileSize"

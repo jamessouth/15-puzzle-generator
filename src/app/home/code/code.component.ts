@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OptionsService } from '../../options.service';
 
 @Component({
   selector: 'app-code',
@@ -10,11 +11,15 @@ export class CodeComponent implements OnInit {
   @Input() width_pixels: number;
   @Input() height_tiles: number;
   @Input() height_pixels: number;
-  @Input() color: string;
 
-  constructor() { }
+  color: string;
+  path: string;
+
+  constructor(private data: OptionsService) { }
 
   ngOnInit() {
+    this.data.currentColor$.subscribe(color => this.color = color);
+    this.data.currentPath$.subscribe(path => this.path = path);
   }
 
 }
