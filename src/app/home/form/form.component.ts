@@ -20,12 +20,14 @@ export class FormComponent implements OnInit {
   nums = [2,3,4,5,6,7,8];
   color: string;
   path: string;
+  helper_image: boolean;
 
   constructor(private data: OptionsService) { }
 
   ngOnInit() {
     this.data.currentColor$.subscribe(color => this.color = color);
     this.data.currentPath$.subscribe(path => this.path = path);
+    this.data.currentHelpImg$.subscribe(helper_image => this.helper_image = helper_image);
   }
 
 
@@ -42,11 +44,15 @@ export class FormComponent implements OnInit {
   onHeightTilesChange(val) {
     this.height_tiles.emit(val);
   }
+
   onColorChange(val) {
     this.data.changeColor(val);
   }
   onPathChange(val) {
     this.data.changePath(val);
+  }
+  onHelpImgChange(val) {
+    this.data.changeHelpImg(val);
   }
 
 

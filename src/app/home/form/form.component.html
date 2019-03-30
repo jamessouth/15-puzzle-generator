@@ -33,8 +33,11 @@
     <hr>
     <fieldset id="extras">
       <legend>Additional Features</legend>
+
       <label>Relative path to your image: <input #pathbox name="path" [ngModel]="path" (ngModelChange)="onPathChange(pathbox.value)" placeholder="Optional" type="text"/></label>
-      <label>Add helper image: <input #helperbox [ngModel]="helper_image" (ngModelChange)="onHelpImgChange(helperbox.value)" type="checkbox" name="help" value="image"/></label>
+
+      <label>Add helper image: <input #helperbox [ngModel]="helper_image" (ngModelChange)="onHelpImgChange(helperbox.checked)" type="checkbox" name="help"/></label>
+
     </fieldset>
   </div>
 </form>

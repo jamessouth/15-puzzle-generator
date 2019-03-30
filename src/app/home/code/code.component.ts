@@ -11,15 +11,18 @@ export class CodeComponent implements OnInit {
   @Input() width_pixels: number;
   @Input() height_tiles: number;
   @Input() height_pixels: number;
+  @Input() codeReady: boolean;
 
   color: string;
   path: string;
+  helper_image: boolean;
 
   constructor(private data: OptionsService) { }
 
   ngOnInit() {
     this.data.currentColor$.subscribe(color => this.color = color);
     this.data.currentPath$.subscribe(path => this.path = path);
+    this.data.currentHelpImg$.subscribe(helper_image => this.helper_image = helper_image);
   }
 
 }

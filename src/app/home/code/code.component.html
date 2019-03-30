@@ -1,5 +1,5 @@
-<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, {{path}}</p>
-<div :class="{ codeOverlay: !codeReady }" id="copy-email">
+<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, {{path}}, {{helper_image}}, {{codeReady}} </p>
+<div [class.codeOverlay]="codeReady" id="copy-email">
 </div>
 <div :class="{ blurry: !codeReady }" ref="code" id="code">
   <template v-if="currentLang === 'HTML'">
