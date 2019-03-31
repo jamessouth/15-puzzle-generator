@@ -1,0 +1,23 @@
+.codeOverlay:after{
+  position: absolute;
+  top: 100px;
+  z-index: 2;
+  font-family: 'Limelight', cursive;
+  font-size: 33px;
+  text-align: center;
+  color: #80000f;
+  content: 'Please clear the validation errors above';
+  width: calc(100vw - 70px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.blurry{
+  filter: blur(4px);
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#copy-email{
+  position: relative;
+}

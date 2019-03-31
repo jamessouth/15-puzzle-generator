@@ -1,0 +1,73 @@
+#lang-select{
+  display: grid;
+
+  grid: "larrow ctext rarrow" 60% "lcopy . remail" 40% / 52px auto 52px;
+  place-items: center;
+  width: 90%;
+  height: 160px;
+  margin-bottom: 4em;
+  background: url('../../../assets/images/langbanner.jpg') no-repeat center;
+
+  background-size: cover;
+}
+#lang-select button:hover{
+  filter: brightness(110%) drop-shadow(0px 0px 7px #fff);
+}
+#lang-select span{
+  font-family: 'Limelight', cursive;
+  font-size: 57px;
+  color: #fbfbfb;
+  filter: drop-shadow(0px 0px 3px #fff);
+  grid-area: ctext;
+}
+
+
+
+#lang-select span:hover{
+  filter: drop-shadow(0px 0px 7px #fff);
+}
+
+#lang-select > button:not(:last-of-type){
+  background-image: url('../../../assets/images/arrow.png');
+  width: 50px;
+  height: 64px;
+}
+
+#lang-select > button:first-of-type{
+  grid-area: larrow;
+}
+
+#lang-select > button:nth-of-type(2){
+  transform: rotateZ(180deg);
+  grid-area: rarrow;
+}
+#lang-select > a{
+  display: flex;
+  grid-area: remail;
+}
+#copy, #email{
+  transform: scale(1.5);
+  height: 24px;
+  width: 24px;
+}
+
+#copy{
+  background-image: url('../../../assets/images/copy.png');
+  grid-area: lcopy;
+}
+@media screen and (pointer: fine) and (hover: hover) {
+  #lang-select{
+      background-attachment: fixed;
+  }
+}
+@media screen and (min-width: 640px) {
+  #lang-select span{
+    font-size: 72px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #lang-select{
+    grid: ". larrow ctext ctext rarrow ." 60% ". . lcopy remail . ." 40% / 10% 52px 1fr 1fr 52px 10%;
+  }
+}
