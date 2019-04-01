@@ -1,9 +1,9 @@
 <div id="lang-select">
-  <button (click)="changeLang('l')"></button>
+  <button class="arrow" (click)="changeLang('l')"></button>
   <!-- <transition name="fade" mode="out-in"> -->
     <span>{{currentLang}}</span>
   <!-- </transition> -->
-  <button (click)="changeLang('r')"></button>
-  <button	v-show="codeReady" (click)="doCopy"	id="copy"></button>
-  <a v-show="codeReady" href="mailto:?subject=Code%20for%20the%2015%20puzzle"><button id="email"></button></a>
+  <button class="arrow" (click)="changeLang('r')"></button>
+  <button	*ngIf="codeReady" (click)="doCopy"	id="copy"></button>
+  <a *ngIf="codeReady" href="mailto:?subject=Code%20for%20the%2015%20puzzle"><button id="email"></button></a>
 </div>
