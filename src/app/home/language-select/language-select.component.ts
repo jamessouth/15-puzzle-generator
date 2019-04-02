@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OptionsService } from '../../options.service';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-language-select',
@@ -10,16 +12,29 @@ export class LanguageSelectComponent implements OnInit {
 
   currentIndex = 0;
   languages = ['HTML', 'CSS', 'JS'];
-  currentLang = this.languages[this.currentIndex % 3];
+  lang: string;
 
-  constructor() { }
+  constructor(
+    private data: OptionsService,
+    public breakpointObserver: BreakpointObserver
+  ) { }
 
   ngOnInit() {
+    this.data.currentLang$.subscribe(lang => this.lang = lang);
+    this.breakpointObserver
+      .observe(['(min-width: 510px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.languages[2] = 'JavaScript';
+        } else {
+          this.languages[2] = 'JS';
+        }
+      });
   }
 
 
 
-  changeLang(dir: string) {
+  onLangChange(dir: string) {
     if (dir === 'r') {
       this.currentIndex++;
     } else {
@@ -28,8 +43,8 @@ export class LanguageSelectComponent implements OnInit {
           this.currentIndex = 2;
         }
     }
+    this.data.changeLang(this.languages[this.currentIndex % 3]);
   }
-
 
 
 }
