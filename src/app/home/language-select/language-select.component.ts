@@ -16,7 +16,7 @@ export class LanguageSelectComponent implements OnInit {
 
   constructor(
     private data: OptionsService,
-    public breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit() {
@@ -29,6 +29,7 @@ export class LanguageSelectComponent implements OnInit {
         } else {
           this.languages[2] = 'JS';
         }
+        this.data.changeLang(this.languages[this.currentIndex % 3]);
       });
   }
 

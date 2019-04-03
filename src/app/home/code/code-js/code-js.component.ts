@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { OptionsService } from '../../../options.service';
 
 @Component({
   selector: 'app-code-js',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-js.component.scss']
 })
 export class CodeJsComponent implements OnInit {
+  @Input() tileWidth: number;
+  @Input() tileHeight: number;
+  @Input() width_tiles: number;
+  @Input() height_tiles: number;
 
-  constructor() { }
+  path: string;
+
+  constructor(private data: OptionsService) { }
 
   ngOnInit() {
+    this.data.currentPath$.subscribe(path => this.path = path);
   }
 
 }

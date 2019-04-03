@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { OptionsService } from '../../../options.service';
 
 @Component({
   selector: 'app-code-css',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-css.component.scss']
 })
 export class CodeCssComponent implements OnInit {
+  @Input() width_pixels: number;
 
-  constructor() { }
+  color: string;
+
+  constructor(private data: OptionsService) { }
 
   ngOnInit() {
+    this.data.currentColor$.subscribe(color => this.color = color);
   }
 
 }

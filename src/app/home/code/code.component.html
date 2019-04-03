@@ -1,22 +1,25 @@
-<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, {{path}}, {{helper_image}}, {{codeReady}} </p>
+<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, {{path}}, {{helper_image}}, {{codeReady}}, {{lang}} </p>
 <div [class.codeOverlay]="!codeReady" id="copy-email">
 </div>
 <div [class.blurry]="!codeReady" ref="code" id="code">
-  <!-- <template v-if="currentLang === 'HTML'"> -->
 
+  <ng-container *ngIf="lang === 'HTML'">
     <app-code-html [width_pixels]="width_pixels" [height_pixels]="height_pixels"></app-code-html>
-    <app-code-html-helper-image  v-if="additional.helperImage"></app-code-html-helper-image>
+    <app-code-html-helper-image *ngIf="helper_image"></app-code-html-helper-image>
+  </ng-container>
 
-  <template v-if="currentLang === 'CSS'">
-    <app-code-css :color="basic.color" :image-width="basic.imageWidth"></app-code-css>
-    <app-code-css-helper-image :helper-image-width="helperImageWidth" v-if="additional.helperImage"></app-code-css-helper-image>
-  </template>
-  <template v-if="currentLang.includes('J')">
+  <ng-container *ngIf="lang === 'CSS'">
+    <app-code-css [width_pixels]="width_pixels"></app-code-css>
+    <app-code-css-helper-image [width_pixels]="width_pixels" *ngIf="helper_image"></app-code-css-helper-image>
+  </ng-container>
+
+  <ng-container *ngIf="lang.includes('J')">
     <app-code-js
-
-    :tiles-wide="basic.widthTiles"
-    :tiles-high="basic.heightTiles"
-    :tile-size="tileSize"
+    [width_tiles]="width_tiles"
+    [height_tiles]="height_tiles"
+    [tileWidth]="tileWidth"
+    [tileHeight]="tileHeight"
     ></app-code-js>
-  </template>
+  </ng-container>
+
 </div>

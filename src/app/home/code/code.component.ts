@@ -16,6 +16,7 @@ export class CodeComponent implements OnInit {
   color: string;
   path: string;
   helper_image: boolean;
+  lang: string;
 
   constructor(private data: OptionsService) { }
 
@@ -23,6 +24,7 @@ export class CodeComponent implements OnInit {
     this.data.currentColor$.subscribe(color => this.color = color);
     this.data.currentPath$.subscribe(path => this.path = path);
     this.data.currentHelpImg$.subscribe(helper_image => this.helper_image = helper_image);
+    this.data.currentLang$.subscribe(lang => this.lang = lang);
   }
 
 }

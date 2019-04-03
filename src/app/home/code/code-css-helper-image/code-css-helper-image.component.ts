@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-code-css-helper-image',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-css-helper-image.component.scss']
 })
 export class CodeCssHelperImageComponent implements OnInit {
+  @Input() width_pixels: number;
 
   constructor() { }
 

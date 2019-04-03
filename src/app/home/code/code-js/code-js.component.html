@@ -44,7 +44,7 @@ pic.onload = () => {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, canvArray[i][0], canvArray[i][1], {{tileSize}}, {{tileSize}}, canvArray[doable[1][i]][0], canvArray[doable[1][i]][1], {{tileSize}}, {{tileSize}});
 &nbsp;&nbsp;{{ '}' }}
 {{ '}' }}
-pic.src = '<span :class="{ greenBackground: !path }">{{path || '[path to your image]'}}</span>';
+pic.src = '<span [class.greenBackground]="!path">{{path || '[path to your image]'}}</span>';
 function swapTiles(x, y){{ '{' }}
 &nbsp;&nbsp;if(canvArray.length === 0){{ '{' }}return;{{ '}' }}
 &nbsp;&nbsp;let tileClicked = (Math.floor(y / {{tileSize}}) * {{tilesWide}}) + Math.floor(x / {{tileSize}});
