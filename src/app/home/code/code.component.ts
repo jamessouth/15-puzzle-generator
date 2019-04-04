@@ -11,6 +11,7 @@ export class CodeComponent implements OnInit {
   @Input() width_pixels: number;
   @Input() height_tiles: number;
   @Input() height_pixels: number;
+  @Input() tileWidth: number;
   @Input() codeReady: boolean;
 
   color: string;

@@ -1,12 +1,21 @@
-main{
+app-header, main{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 1em 0 2em;
+}
+main{
+    margin: 0 0 2em;
 }
 app-language-select{
   width: 100%;
   display: flex;
   justify-content: center;
+}
+app-code{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

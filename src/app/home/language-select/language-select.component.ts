@@ -5,7 +5,23 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 @Component({
   selector: 'app-language-select',
   templateUrl: './language-select.component.html',
-  styleUrls: ['./language-select.component.scss']
+  styleUrls: ['./language-select.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('in', style({
+        opacity: 1
+      })),
+      state('out', style({
+        opacity: 0
+      })),
+      transition('in => out', [
+        animate('1s')
+      ]),
+      transition('out => in', [
+        animate('1s')
+      ]),
+    ]),
+  ]
 })
 export class LanguageSelectComponent implements OnInit {
   @Input() codeReady: boolean;

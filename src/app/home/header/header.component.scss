@@ -6,16 +6,16 @@
 }
 
 header{
-  margin: 6.5em 1em 13.5em;
-  height: 104px;
+  margin: 6.5em 1em 18.5em;
+  height: 52px;
   background: url("../../../assets/images/smallbg.jpg") 50% no-repeat;
 }
 
 header:before{
   display: block;
   font-family: 'uppereastsideregular';
-  font-size: 60px;
-  letter-spacing: 6px;
+  font-size: 43px;
+  letter-spacing: 2px;
   text-align: center;
   content: "15 Puzzle Generator";
   background: #fbfbfb;
@@ -46,10 +46,14 @@ a:hover{
   background-color: #700080;
 }
 
-@media screen and (min-width: 489px) {
+@media screen and (min-width: 506px) {
   header{
     height: 3em;
     background: url("../../../assets/images/medbg1.jpg") 50% no-repeat;
+  }
+  header:before{
+    font-size: 60px;
+    letter-spacing: 6px;
   }
 }
 
@@ -57,6 +61,7 @@ a:hover{
   header{
     height: 5em;
     background: url("../../../assets/images/medbg2.jpg") 50% no-repeat;
+    margin-bottom: 13.5em;
   }
 
   header:before{

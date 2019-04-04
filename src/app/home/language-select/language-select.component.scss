@@ -40,17 +40,17 @@ button:focus{
   filter: drop-shadow(0px 0px 7px #fff);
 }
 
-#lang-select > button.arrow{
+button:nth-of-type(1), button:nth-of-type(2){
   background-image: url('../../../assets/images/arrow.png');
   width: 50px;
   height: 64px;
 }
 
-#lang-select > button.arrow:first-of-type{
+button:nth-of-type(1){
   grid-area: larrow;
 }
 
-#lang-select > button.arrow:last-of-type{
+button:nth-of-type(2){
   transform: rotateZ(180deg);
   grid-area: rarrow;
 }

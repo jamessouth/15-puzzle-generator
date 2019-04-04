@@ -1,11 +1,12 @@
 <pre><code>const canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let canvArray = [], pic = new Image();
-for(let i = 0; i < {{tilesHigh}}; i++){{ '{' }}
-&nbsp;&nbsp;for(let j = 0; j < {{tilesWide}}; j++){{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;canvArray.push([j * {{tileSize}}, i * {{tileSize}}]);
+for(let i = 0; i < {{height_tiles}}; i++){{ '{' }}
+&nbsp;&nbsp;for(let j = 0; j < {{width_tiles}}; j++){{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;canvArray.push([j * {{tileWidth}}, i * {{tileWidth}}]);
 &nbsp;&nbsp;{{ '}' }}
 {{ '}' }}
+
 function getRands(amt){{ '{' }}
 &nbsp;&nbsp;let nums = new Set();
 &nbsp;&nbsp;while(nums.size < amt){{ '{' }}
@@ -14,6 +15,7 @@ function getRands(amt){{ '{' }}
 &nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;return [...nums];
 {{ '}' }}
+
 function getInversions(arr){{ '{' }}
 &nbsp;&nbsp;let inversions = 0;
 &nbsp;&nbsp;for(let i = 0; i < arr.length; i++){{ '{' }}
@@ -26,6 +28,7 @@ function getInversions(arr){{ '{' }}
 &nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;return inversions;
 {{ '}' }}
+
 function checkBoard(){{ '{' }}
 &nbsp;&nbsp;let randos = getRands(canvArray.length - 1);
 &nbsp;&nbsp;let solArray = [];
@@ -34,40 +37,44 @@ function checkBoard(){{ '{' }}
 &nbsp;&nbsp;{{ '}' }});
 &nbsp;&nbsp;return [solArray.concat([canvArray.length - 1]), randos.concat([canvArray.length - 1])];
 {{ '}' }}
+
 let doable = checkBoard();
 while(getInversions(doable[0]) % 2 !== 0){{ '{' }}
 &nbsp;&nbsp;doable = checkBoard();
 {{ '}' }}
 let boardOrder = doable[0].slice();
+
 pic.onload = () => {{ '{' }}
 &nbsp;&nbsp;for(let i = 0; i < canvArray.length - 1; i++){{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, canvArray[i][0], canvArray[i][1], {{tileSize}}, {{tileSize}}, canvArray[doable[1][i]][0], canvArray[doable[1][i]][1], {{tileSize}}, {{tileSize}});
+&nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, canvArray[i][0], canvArray[i][1], {{tileWidth}}, {{tileWidth}}, canvArray[doable[1][i]][0], canvArray[doable[1][i]][1], {{tileWidth}}, {{tileWidth}});
 &nbsp;&nbsp;{{ '}' }}
 {{ '}' }}
+
 pic.src = '<span [class.greenBackground]="!path">{{path || '[path to your image]'}}</span>';
+
 function swapTiles(x, y){{ '{' }}
 &nbsp;&nbsp;if(canvArray.length === 0){{ '{' }}return;{{ '}' }}
-&nbsp;&nbsp;let tileClicked = (Math.floor(y / {{tileSize}}) * {{tilesWide}}) + Math.floor(x / {{tileSize}});
+&nbsp;&nbsp;let tileClicked = (Math.floor(y / {{tileWidth}}) * {{width_tiles}}) + Math.floor(x / {{tileWidth}});
 &nbsp;&nbsp;let blank = boardOrder.indexOf(canvArray.length - 1);
-&nbsp;&nbsp;if(blank % {{tilesWide}} === 0) {{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{tilesWide}}, 1, {{tilesWide}}].includes(tileClicked - blank)) {{ '{' }}
+&nbsp;&nbsp;if(blank % {{width_tiles}} === 0) {{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{width_tiles}}, 1, {{width_tiles}}].includes(tileClicked - blank)) {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
-&nbsp;&nbsp;{{ '}' }} else if((blank + 1) % {{tilesWide}} === 0) {{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{tilesWide}}, -1, {{tilesWide}}].includes(tileClicked - blank)) {{ '{' }}
+&nbsp;&nbsp;{{ '}' }} else if((blank + 1) % {{width_tiles}} === 0) {{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{width_tiles}}, -1, {{width_tiles}}].includes(tileClicked - blank)) {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;{{ '}' }} else {{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;if(![1, {{tilesWide}}].includes(Math.abs(tileClicked - blank))) {{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;if(![1, {{width_tiles}}].includes(Math.abs(tileClicked - blank))) {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;let finalCheck;
 &nbsp;&nbsp;let brdInd = boardOrder[tileClicked];
-&nbsp;&nbsp;ctx.clearRect(canvArray[tileClicked][0], canvArray[tileClicked][1], {{tileSize}}, {{tileSize}});
-&nbsp;&nbsp;ctx.drawImage(pic, canvArray[brdInd][0], canvArray[brdInd][1], {{tileSize}}, {{tileSize}}, canvArray[blank][0], canvArray[blank][1], {{tileSize}}, {{tileSize}});
+&nbsp;&nbsp;ctx.clearRect(canvArray[tileClicked][0], canvArray[tileClicked][1], {{tileWidth}}, {{tileWidth}});
+&nbsp;&nbsp;ctx.drawImage(pic, canvArray[brdInd][0], canvArray[brdInd][1], {{tileWidth}}, {{tileWidth}}, canvArray[blank][0], canvArray[blank][1], {{tileWidth}}, {{tileWidth}});
 &nbsp;&nbsp;[boardOrder[tileClicked], boardOrder[blank]] = [boardOrder[blank], boardOrder[tileClicked]];
-&nbsp;&nbsp;if(boardOrder[0] === 0 && boardOrder[{{tilesWide - 1}}] === {{tilesWide - 1}} && boardOrder[{{tilesWide * (tilesHigh - 1) - 1}}] === {{tilesWide * (tilesHigh - 1) - 1}} && boardOrder[{{tilesWide * tilesHigh - 2}}] === {{tilesWide * tilesHigh - 2}}){{ '{' }}
+&nbsp;&nbsp;if(boardOrder[0] === 0 && boardOrder[{{width_tiles - 1}}] === {{width_tiles - 1}} && boardOrder[{{width_tiles * (height_tiles - 1) - 1}}] === {{width_tiles * (height_tiles - 1) - 1}} && boardOrder[{{width_tiles * height_tiles - 2}}] === {{width_tiles * height_tiles - 2}}){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;finalCheck = true;
 &nbsp;&nbsp;&nbsp;&nbsp;for(let f = 0; f < boardOrder.length; f++){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(boardOrder[f] !== f){{ '{' }}
@@ -77,10 +84,11 @@ function swapTiles(x, y){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;if(finalCheck){{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, {{(tilesWide - 1) * tileSize}}, {{(tilesHigh - 1) * tileSize}}, {{tileSize}}, {{tileSize}}, {{(tilesWide - 1) * tileSize}}, {{(tilesHigh - 1) * tileSize}}, {{tileSize}}, {{tileSize}});
+&nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, {{(width_tiles - 1) * tileWidth}}, {{(height_tiles - 1) * tileWidth}}, {{tileWidth}}, {{tileWidth}}, {{(width_tiles - 1) * tileWidth}}, {{(height_tiles - 1) * tileWidth}}, {{tileWidth}}, {{tileWidth}});
 &nbsp;&nbsp;&nbsp;&nbsp;canvArray = [];
 &nbsp;&nbsp;{{ '}' }}
 {{ '}' }}
+
 canvas.addEventListener('click', e => {{ '{' }}
 &nbsp;&nbsp;let x = e.offsetX;
 &nbsp;&nbsp;let y = e.offsetY;

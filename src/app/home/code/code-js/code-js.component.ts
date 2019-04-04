@@ -8,7 +8,6 @@ import { OptionsService } from '../../../options.service';
 })
 export class CodeJsComponent implements OnInit {
   @Input() tileWidth: number;
-  @Input() tileHeight: number;
   @Input() width_tiles: number;
   @Input() height_tiles: number;
 

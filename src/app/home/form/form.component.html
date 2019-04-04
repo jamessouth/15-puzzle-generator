@@ -17,7 +17,7 @@
           <option *ngFor="let num of nums">{{num}}</option>
         </select>&nbsp;tiles
       </label>
-{{tileWidth}}, {{tileHeight}}
+
       <label>Height:&nbsp;
         <select #height_tilesbox name="height_tiles" [ngModel]="height_tiles" (ngModelChange)="onHeightTilesChange(height_tilesbox.value)">
           <option *ngFor="let num of nums">{{num}}</option>

@@ -1,7 +1,6 @@
-<p>{{width_tiles}}, {{width_pixels}}, {{height_tiles}}, {{height_pixels}}, {{color}}, {{path}}, {{helper_image}}, {{codeReady}}, {{lang}} </p>
 <div [class.codeOverlay]="!codeReady" id="copy-email">
 </div>
-<div [class.blurry]="!codeReady" ref="code" id="code">
+<div [class.blurry]="!codeReady" id="code">
 
   <ng-container *ngIf="lang === 'HTML'">
     <app-code-html [width_pixels]="width_pixels" [height_pixels]="height_pixels"></app-code-html>
@@ -18,7 +17,6 @@
     [width_tiles]="width_tiles"
     [height_tiles]="height_tiles"
     [tileWidth]="tileWidth"
-    [tileHeight]="tileHeight"
     ></app-code-js>
   </ng-container>
 

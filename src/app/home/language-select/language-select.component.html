@@ -1,9 +1,9 @@
 <div id="lang-select">
-  <button class="arrow" (click)="onLangChange('l')"></button>
+  <button (click)="onLangChange('l')"></button>
   <!-- <transition name="fade" mode="out-in"> -->
-    <span>{{lang}}</span>
+    <span [@fadeInOut]="">{{lang}}</span>
   <!-- </transition> -->
-  <button class="arrow" (click)="onLangChange('r')"></button>
+  <button (click)="onLangChange('r')"></button>
   <button	*ngIf="codeReady" (click)="doCopy"	id="copy"></button>
   <a *ngIf="codeReady" href="mailto:?subject=Code%20for%20the%2015%20puzzle"><button id="email"></button></a>
 </div>
