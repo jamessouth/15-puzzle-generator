@@ -1,3 +1,22 @@
-<p>
-  demo works!
-</p>
+<div>
+
+
+  <img :style="demoH1Styles" alt="demo" src="images/demo.png"/>
+  <div :style="[holderStylesC, holderStylesD]">
+    <div v-if="gameOver && !tabMQOn" :style="maskStyles" id="mask">
+      <button @click="resetGame" type="button">Reset</button>
+    </div>
+    <canvas @click="swapTiles" ref="cnvs" :style="canvasStyles" width="410" height="574">
+      Your browser does not support canvas.
+    </canvas>
+    <div :style="innerDivStyles">
+      <button @blur="focusHandler" @focus="focusHandler" @mouseup="activeHandler" @mousedown="activeHandler" @click="helpBtnHandler" type="button" :style="helpBtnStyles" id="showHelp"><img alt="help" :style="{ verticalAlign: 'bottom' }" :src="btnImg"/></button>
+      <transition name="swing">
+        <div v-if="gameOver && tabMQOn" :style="resetStylesDiv">
+          <button @click="resetGame" type="button" :style="resetStylesBtn">Reset</button>
+        </div>
+      </transition>
+      <img :style="helpImgStyles" v-show="helpOpen" src="images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
+    </div>
+  </div>
+</div>

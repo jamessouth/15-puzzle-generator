@@ -1,8 +1,8 @@
 <div id="lang-select">
   <button (click)="onLangChange('l')"></button>
-  <!-- <transition name="fade" mode="out-in"> -->
-    <span [@fadeInOut]="">{{lang}}</span>
-  <!-- </transition> -->
+  <span @fadeInOut *ngIf="lang === 'HTML'">{{lang}}</span>
+  <span @fadeInOut *ngIf="lang === 'CSS'">{{lang}}</span>
+  <span @fadeInOut *ngIf="lang.includes('J')">{{lang}}</span>
   <button (click)="onLangChange('r')"></button>
   <button	*ngIf="codeReady" (click)="doCopy"	id="copy"></button>
   <a *ngIf="codeReady" href="mailto:?subject=Code%20for%20the%2015%20puzzle"><button id="email"></button></a>

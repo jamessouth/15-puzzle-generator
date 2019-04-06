@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OptionsService } from '../../options.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-language-select',
@@ -8,17 +9,13 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
   styleUrls: ['./language-select.component.scss'],
   animations: [
     trigger('fadeInOut', [
-      state('in', style({
-        opacity: 1
-      })),
-      state('out', style({
-        opacity: 0
-      })),
-      transition('in => out', [
-        animate('1s')
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('0.5s 0.2s ease-out', style({ opacity: 1 })),
       ]),
-      transition('out => in', [
-        animate('1s')
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('0.25s ease-out', style({ opacity: 0 })),
       ]),
     ]),
   ]

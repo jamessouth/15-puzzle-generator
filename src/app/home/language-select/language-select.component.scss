@@ -32,6 +32,10 @@ button:focus{
   color: #fbfbfb;
   filter: drop-shadow(0px 0px 3px #fff);
   grid-area: ctext;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 
