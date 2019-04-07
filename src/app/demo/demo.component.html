@@ -1,22 +1,25 @@
 <div>
 
 
-  <img :style="demoH1Styles" alt="demo" src="images/demo.png"/>
-  <div :style="[holderStylesC, holderStylesD]">
-    <div v-if="gameOver && !tabMQOn" :style="maskStyles" id="mask">
-      <button @click="resetGame" type="button">Reset</button>
+  <img class="h1Img" alt="demo" src="../assets/images/demo.png"/>
+  <main [class.extHeight]="helpOpen && !landscape">
+    <div *ngIf="gameOver && !landscape" [class.mask]="helpOpen" id="mask">
+      <button (click)="resetGame" type="button">Reset</button>
     </div>
-    <canvas @click="swapTiles" ref="cnvs" :style="canvasStyles" width="410" height="574">
+    <canvas (click)="swapTiles" width="410" height="574">
       Your browser does not support canvas.
     </canvas>
-    <div :style="innerDivStyles">
-      <button @blur="focusHandler" @focus="focusHandler" @mouseup="activeHandler" @mousedown="activeHandler" @click="helpBtnHandler" type="button" :style="helpBtnStyles" id="showHelp"><img alt="help" :style="{ verticalAlign: 'bottom' }" :src="btnImg"/></button>
-      <transition name="swing">
-        <div v-if="gameOver && tabMQOn" :style="resetStylesDiv">
-          <button @click="resetGame" type="button" :style="resetStylesBtn">Reset</button>
+    <div class="help" [style.height.px]="helpOpen && innerDiv">
+      <button (blur)="focusHandler" (focus)="focusHandler" (mouseup)="activeHandler" (mousedown)="activeHandler" (click)="helpBtnHandler" type="button" class="helpBtn" [class.helpBtnMrgn]="helpOpen" [class.class2]="isFocused && !isActive" [class.class1]="isFocused && isActive" [class.class1]="!isFocused && isActive">
+        <img alt="help" *ngIf="!helpOpen" src='../assets/images/help.png'/>
+        <img alt="help" *ngIf="helpOpen" src='../assets/images/hide.png'/>
+      </button>
+      <!-- <transition name="swing"> -->
+        <div *ngIf="gameOver && landscape" class="resetStylesDiv">
+          <button (click)="resetGame" type="button" class="resetStylesBtn">Reset</button>
         </div>
-      </transition>
-      <img :style="helpImgStyles" v-show="helpOpen" src="images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
+      <!-- </transition> -->
+      <img class="helpImgStyles" *ngIf="helpOpen" src="../assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
     </div>
-  </div>
+  </main>
 </div>

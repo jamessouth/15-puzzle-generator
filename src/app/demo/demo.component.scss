@@ -1,0 +1,110 @@
+.h1Img{
+  display: block;
+  margin: 6em auto;
+  margin-bottom: 3em;
+}
+main{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 800px;
+}
+canvas{
+  background-color: #154a6a;
+  min-width: 410px;
+}
+button > img{
+  vertical-align: bottom;
+}
+.help{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  // width: 154px;
+}
+
+.extHeight{
+  height: 1100px;
+}
+.helpBtn{
+  width: 205px;
+  height: 54px;
+  margin-bottom: 3em;
+  background: linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
+  border: 2px solid;
+  filter: none;
+  border-color: #aaa;
+  cursor: pointer;
+}
+.helpBtnMrgn{
+  margin-bottom: 0;
+}
+.class1{
+  border-color: transparent;
+}
+.class2{
+  border-color: #154a6a;
+}
+
+#mask{
+  -webkit-mask-image: url('../../assets/images/muchamask.png');
+  mask-image: url('../../assets/images/muchamask.png');
+  width: 410px;
+  height: 574px;
+  position: absolute;
+  top: 33px;
+}
+
+.mask{
+  top: 37px;
+}
+.resetStylesDiv{
+  width: 154px;
+  height: 54px;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 54px;
+  transform-origin: center top 0px;
+  // transform: 'rotateX(-150deg)';
+}
+.resetStylesBtn{
+  background: linear-gradient(41deg, #bf2b1d 16%, #380c00 113%);
+  filter: none;
+  height: 100%;
+  width: 100%;
+  color: #fbfbfb;
+  letter-spacing: 5px;
+  font-size: 44px;
+  font-family: 'Limelight', cursive;
+}
+.helpImgStyles{
+  display: none;
+  width: 205px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .h1Img{
+    margin-bottom: 6em;
+  }
+
+  main{
+    flex-direction: row;
+    align-items: flex-start;
+    height: 650px;
+  }
+
+
+
+}
