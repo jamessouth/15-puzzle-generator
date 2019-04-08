@@ -1,19 +1,28 @@
 .h1Img{
   display: block;
   margin: 6em auto;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
 }
 main{
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 800px;
+  display: grid;
+  // grid: 574px 54px / auto;
+  place-items: center;
+  grid-gap: 60px;
+  margin-bottom: 5em;
+  // display: flex;
+  // position: relative;
+  // flex-direction: column;
+  // justify-content: space-around;
+  // align-items: center;
+  // height: 800px;
 }
 canvas{
   background-color: #154a6a;
   min-width: 410px;
+  grid-row: 1 / 2;
+}
+main > button{
+  grid-row: 2 / 3;
 }
 button > img{
   vertical-align: bottom;
@@ -30,28 +39,27 @@ button > img{
   // width: 154px;
 }
 
-.extHeight{
-  height: 1100px;
-}
+
 .helpBtn{
   width: 205px;
   height: 54px;
-  margin-bottom: 3em;
+  // margin-bottom: 3em;
   background: linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
   border: 2px solid;
   filter: none;
   border-color: #aaa;
   cursor: pointer;
+  outline: none;
+}
+.helpBtn:focus{
+  border-color: #154a6a;
 }
 .helpBtnMrgn{
   margin-bottom: 0;
 }
-.class1{
-  border-color: transparent;
-}
-.class2{
-  border-color: #154a6a;
-}
+
+
+
 
 #mask{
   -webkit-mask-image: url('../../assets/images/muchamask.png');
@@ -88,9 +96,9 @@ button > img{
   font-family: 'Limelight', cursive;
 }
 .helpImgStyles{
-  display: none;
   width: 205px;
 }
+
 
 
 @media screen and (min-width: 768px) {
@@ -98,13 +106,20 @@ button > img{
   .h1Img{
     margin-bottom: 6em;
   }
-
-  main{
-    flex-direction: row;
-    align-items: flex-start;
-    height: 650px;
+  canvas{
+    background-color: #154a6a;
+    min-width: 410px;
+    grid-row: 1 / 4;
+  }
+  main > button{
+    grid-row: 1 / 2;
   }
 
 
 
+
 }
+
+// @media screen and (min-width: 768px) and (orientation: landscape) {
+//
+// }

@@ -1,16 +1,17 @@
 <div>
 
 
+<!-- [style.height.px]="helpOpen && innerDiv" -->
   <img class="h1Img" alt="demo" src="../assets/images/demo.png"/>
-  <main [class.extHeight]="helpOpen && !landscape">
+  <main>
     <div *ngIf="gameOver && !landscape" [class.mask]="helpOpen" id="mask">
       <button (click)="resetGame" type="button">Reset</button>
     </div>
-    <canvas (click)="swapTiles" width="410" height="574">
+    <canvas (click)="swapTiles($event.offsetX, $event.offsetY)" width="410" height="574">
       Your browser does not support canvas.
     </canvas>
-    <div class="help" [style.height.px]="helpOpen && innerDiv">
-      <button (blur)="focusHandler" (focus)="focusHandler" (mouseup)="activeHandler" (mousedown)="activeHandler" (click)="helpBtnHandler" type="button" class="helpBtn" [class.helpBtnMrgn]="helpOpen" [class.class2]="isFocused && !isActive" [class.class1]="isFocused && isActive" [class.class1]="!isFocused && isActive">
+    <!-- <div class="help" > -->
+      <button (click)="helpBtnHandler()" type="button" class="helpBtn" [class.helpBtnMrgn]="helpOpen">
         <img alt="help" *ngIf="!helpOpen" src='../assets/images/help.png'/>
         <img alt="help" *ngIf="helpOpen" src='../assets/images/hide.png'/>
       </button>
@@ -20,6 +21,6 @@
         </div>
       <!-- </transition> -->
       <img class="helpImgStyles" *ngIf="helpOpen" src="../assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
-    </div>
+    <!-- </div> -->
   </main>
 </div>
