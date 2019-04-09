@@ -1,26 +1,19 @@
 <div>
-
-
-<!-- [style.height.px]="helpOpen && innerDiv" -->
-  <img class="h1Img" alt="demo" src="../assets/images/demo.png"/>
+  <h1 class="topFlourish">
+    <span>.</span>DEMO
+  </h1>
+  <button *ngIf="gameOver" (click)="resetGame()" type="button" class="resetStylesBtn">
+    Reset
+  </button>
   <main>
-    <div *ngIf="gameOver && !landscape" [class.mask]="helpOpen" id="mask">
-      <button (click)="resetGame" type="button">Reset</button>
-    </div>
     <canvas (click)="swapTiles($event.offsetX, $event.offsetY)" width="410" height="574">
       Your browser does not support canvas.
     </canvas>
-    <!-- <div class="help" > -->
-      <button (click)="helpBtnHandler()" type="button" class="helpBtn" [class.helpBtnMrgn]="helpOpen">
-        <img alt="help" *ngIf="!helpOpen" src='../assets/images/help.png'/>
-        <img alt="help" *ngIf="helpOpen" src='../assets/images/hide.png'/>
-      </button>
-      <!-- <transition name="swing"> -->
-        <div *ngIf="gameOver && landscape" class="resetStylesDiv">
-          <button (click)="resetGame" type="button" class="resetStylesBtn">Reset</button>
-        </div>
-      <!-- </transition> -->
-      <img class="helpImgStyles" *ngIf="helpOpen" src="../assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
-    <!-- </div> -->
+    <button (click)="helpOpen = !helpOpen" type="button" class="helpBtn">
+      <img alt="help" *ngIf="!helpOpen" src='../assets/images/help.png'/>
+      <img alt="help" *ngIf="helpOpen" src='../assets/images/hide.png'/>
+    </button>
+    <img class="helpImgStyles" *ngIf="helpOpen" src="../assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
   </main>
+  <p class="bottomFlourish"></p>
 </div>

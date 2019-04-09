@@ -1,21 +1,36 @@
-.h1Img{
-  display: block;
-  margin: 6em auto;
-  margin-bottom: 5em;
+div{
+  position: relative;
 }
+
 main{
   display: grid;
-  // grid: 574px 54px / auto;
   place-items: center;
   grid-gap: 60px;
   margin-bottom: 5em;
-  // display: flex;
-  // position: relative;
-  // flex-direction: column;
-  // justify-content: space-around;
-  // align-items: center;
-  // height: 800px;
 }
+
+h1{
+  margin: 0 auto 1.5em;
+  font-family: 'uppereastsideregular';
+  font-size: 52px;
+  letter-spacing: 6px;
+  text-align: center;
+  width: 95%;
+  color: #3a3a3a;
+  position: relative;
+  margin-top: 2em;
+}
+span{
+  font-size: 1px;
+  color: transparent;
+}
+p{
+  position: relative;
+  margin-bottom: 150px;
+}
+
+
+
 canvas{
   background-color: #154a6a;
   min-width: 410px;
@@ -27,23 +42,11 @@ main > button{
 button > img{
   vertical-align: bottom;
 }
-.help{
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  transform-style: preserve-3d;
-  perspective: 500px;
-  // width: 154px;
-}
 
 
 .helpBtn{
   width: 205px;
   height: 54px;
-  // margin-bottom: 3em;
   background: linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
   border: 2px solid;
   filter: none;
@@ -54,58 +57,115 @@ button > img{
 .helpBtn:focus{
   border-color: #154a6a;
 }
-.helpBtnMrgn{
-  margin-bottom: 0;
+
+
+@keyframes stretch {
+  0% {
+    transform: translateX(-50%) rotateX(-89deg);
+  }
+  17% {
+    transform: translateX(-50%) rotateX(74deg);
+  }
+  33% {
+    transform: translateX(-50%) rotateX(-48deg);
+  }
+  50% {
+    transform: translateX(-50%) rotateX(33deg);
+  }
+  67% {
+    transform: translateX(-50%) rotateX(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotateX(0deg);
+  }
 }
 
 
 
-
-#mask{
-  -webkit-mask-image: url('../../assets/images/muchamask.png');
-  mask-image: url('../../assets/images/muchamask.png');
-  width: 410px;
-  height: 574px;
-  position: absolute;
-  top: 33px;
-}
-
-.mask{
-  top: 37px;
-}
-.resetStylesDiv{
-  width: 154px;
-  height: 54px;
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  align-items: flex-start;
-  position: absolute;
-  top: 54px;
-  transform-origin: center top 0px;
-  // transform: 'rotateX(-150deg)';
-}
 .resetStylesBtn{
+  transform-origin: center top 0px;
   background: linear-gradient(41deg, #bf2b1d 16%, #380c00 113%);
   filter: none;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(0deg);
+  cursor: pointer;
+  border: none;
+  width: 154px;
+  height: 54px;
   color: #fbfbfb;
   letter-spacing: 5px;
   font-size: 44px;
   font-family: 'Limelight', cursive;
+  animation: stretch 2.5s ease-in-out;
 }
 .helpImgStyles{
   width: 205px;
 }
 
 
+@media screen and (min-width: 510px) {
+
+  .topFlourish::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -80px;
+    width: 200px;
+    height: 210px;
+    background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
+  }
+
+  .topFlourish::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -80px;
+    right: 0;
+    width: 200px;
+    height: 210px;
+    background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
+    transform: rotateY(180deg);
+  }
+
+  .bottomFlourish::before{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -45px;
+    transform: rotateY(180deg);
+    left: 0;
+    width: 200px;
+    height: 197px;
+    background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
+
+  }
+
+  .bottomFlourish::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -45px;
+    right: 0;
+    width: 200px;
+    height: 197px;
+    background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
+  }
+
+
+
+
+
+}
+
+
+
+
 
 @media screen and (min-width: 768px) {
 
-  .h1Img{
-    margin-bottom: 6em;
-  }
+
   canvas{
     background-color: #154a6a;
     min-width: 410px;

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { getBoardOrder, getCanvArray } from './demo.utils';
 
 @Component({
@@ -9,57 +8,95 @@ import { getBoardOrder, getCanvArray } from './demo.utils';
 })
 export class DemoComponent implements OnInit {
   helpOpen: boolean = false;
-  innerDiv: number;
-  landscape: boolean;
   gameOver: boolean;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  timer = 2500;
   pic = new Image();
   canvArray: Array<any>;
   boardOrder: Array<number>;
   drawOrder: Array<number>;
 
-  constructor(
-    private breakpointObserver: BreakpointObserver
-  ) { }
+  constructor() { }
 
   ngOnInit() {
 
-    this.breakpointObserver
-      .observe(['(min-width: 768px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          this.landscape = true;
-          this.innerDiv = 410;
-        } else {
-          this.landscape = false;
-          this.innerDiv = 380;
-        }
-      });
-    this.canvas = document.querySelector('canvas');
-    this.ctx = this.canvas.getContext('2d');
+
+    // let gameAlreadyWon;
+    // if(sessionStorage.getItem('gameOver')){
+    //   try{
+    //     gameAlreadyWon = sessionStorage.getItem('gameOver');
+    //   } catch(e) {
+    //     sessionStorage.removeItem('gameOver');
+    //   }
+    // }
+
+    // if (gameAlreadyWon) {
+    //   this.gameOver = true;
+    //   this.pic.onload = () => {
+    //     this.ctx.drawImage(this.pic, 0, 0);
+    //   }
+    //   this.pic.src = "../../assets/images/mucha.jpg";
+    // } else {
 
     this.canvArray = getCanvArray(7, 5);
-    [this.boardOrder, this.drawOrder] = getBoardOrder(35);
-    this.useCanvas(this.drawOrder);
+    this.canvas = document.querySelector('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    let game;
+    if(sessionStorage.getItem('boardOrder')){
+      try{
+        game = JSON.parse(sessionStorage.getItem('boardOrder'));
+      } catch(e){
+        sessionStorage.removeItem('boardOrder');
+      }
+    }
+
+    if (game) {
+      this.boardOrder = game;
+      let drawOrder = [];
+      game.forEach((x, i) => {
+        drawOrder[x] = i;
+      });
+      this.useCanvas(drawOrder);
+    } else {
+
+
+      [this.boardOrder, this.drawOrder] = getBoardOrder(35);
+      this.useCanvas(this.drawOrder);
+    }
+
+
+  }
+
+  ngOnDestroy() {
+
+    this.saveGame(this.boardOrder);
 
   }
 
 
-  // resetGame(e) {
-  //   console.log(e);
-  //   this.gameOver = false;
-  //   sessionStorage.clear();
-  //   this.ctx.clearRect(0, 0, 410, 574);
+
+  saveGame(arr): void {
+    const savedGame = JSON.stringify(arr);
+    sessionStorage.setItem('boardOrder', savedGame);
+  }
+
+  // getSavedGame() {
   //
-  //
-  //   this.getBoard();
-  //   this.getBoardOrder();
-  //   this.useCanvas(this.board[1]);
-  //
-  //   console.log(this.board, this.boardOrder);
-  // }
+  //     return game;
+  //   }
+
+
+  resetGame() {
+    // console.log(e);
+    this.gameOver = false;
+    sessionStorage.clear();
+    this.ctx.clearRect(0, 0, 410, 574);
+
+    [this.boardOrder, this.drawOrder] = getBoardOrder(35);
+    this.useCanvas(this.drawOrder);
+
+    // console.log(this.board, this.boardOrder);
+  }
 
 
   swapTiles(x, y) {
@@ -102,23 +139,15 @@ export class DemoComponent implements OnInit {
 
 
 
-  helpBtnHandler() {
-    this.helpOpen = !this.helpOpen;
-    console.log(this.helpOpen);
-  }
 
-
-
-
-
-    useCanvas(arr) {
-      this.pic.onload = () => {
-        for(let i = 0; i < this.canvArray.length - 1; i++){
-          this.ctx.drawImage(this.pic, this.canvArray[i][0], this.canvArray[i][1], 82, 82, this.canvArray[arr[i]][0], this.canvArray[arr[i]][1], 82, 82);
-        }
+  useCanvas(arr) {
+    this.pic.onload = () => {
+      for(let i = 0; i < this.canvArray.length - 1; i++){
+        this.ctx.drawImage(this.pic, this.canvArray[i][0], this.canvArray[i][1], 82, 82, this.canvArray[arr[i]][0], this.canvArray[arr[i]][1], 82, 82);
       }
-      this.pic.src = "../../assets/images/mucha.jpg";
     }
+    this.pic.src = "../../assets/images/mucha.jpg";
+  }
 
 
 
