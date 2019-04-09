@@ -87,15 +87,12 @@ export class DemoComponent implements OnInit {
 
 
   resetGame() {
-    // console.log(e);
     this.gameOver = false;
     sessionStorage.clear();
     this.ctx.clearRect(0, 0, 410, 574);
 
     [this.boardOrder, this.drawOrder] = getBoardOrder(35);
     this.useCanvas(this.drawOrder);
-
-    // console.log(this.board, this.boardOrder);
   }
 
 
