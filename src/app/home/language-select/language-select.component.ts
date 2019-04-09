@@ -1,23 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OptionsService } from '../../options.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { trigger, style, animate, transition } from '@angular/animations';
+import { langSelectAnimation } from '../../animations';
 
 @Component({
   selector: 'app-language-select',
   templateUrl: './language-select.component.html',
   styleUrls: ['./language-select.component.scss'],
   animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('0.5s 0.2s ease-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('0.25s ease-out', style({ opacity: 0 })),
-      ]),
-    ]),
+    langSelectAnimation
   ]
 })
 export class LanguageSelectComponent implements OnInit {

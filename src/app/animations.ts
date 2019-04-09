@@ -1,5 +1,17 @@
 import { trigger, style, group, query, animateChild, animate, transition } from '@angular/animations';
 
+export const langSelectAnimation =
+  trigger('fadeInOut', [
+    transition(':enter', [
+      style({ opacity: 0 }),
+      animate('0.5s 0.2s ease-out', style({ opacity: 1 })),
+    ]),
+    transition(':leave', [
+      style({ opacity: 1 }),
+      animate('0.25s ease-out', style({ opacity: 0 })),
+    ]),
+  ]);
+
 export const homeToDemoAnimation =
   trigger('homeToDemoAnimation', [
     transition('HomePage => DemoPage', [
