@@ -19,6 +19,7 @@ import { CodeJsComponent } from './home/code/code-js/code-js.component';
 import { CodeCssHelperImageComponent } from './home/code/code-css-helper-image/code-css-helper-image.component';
 import { CodeHtmlHelperImageComponent } from './home/code/code-html-helper-image/code-html-helper-image.component';
 import { OptionsService } from './options.service';
+import { ArtworkComponent } from './artwork/artwork.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { OptionsService } from './options.service';
     CodeJsComponent,
     CodeCssHelperImageComponent,
     CodeHtmlHelperImageComponent,
+    ArtworkComponent,
   ],
   imports: [
     BrowserModule,
