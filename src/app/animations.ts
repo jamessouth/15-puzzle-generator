@@ -1,15 +1,15 @@
-import { trigger, style, group, query, animateChild, animate, transition } from '@angular/animations';
+import { trigger, style, group, query, animate, transition } from '@angular/animations';
 
 export const langSelectAnimation =
   trigger('fadeInOut', [
     transition(':enter', [
       style({ opacity: 0 }),
-      animate('0.5s 0.2s ease-out', style({ opacity: 1 })),
+      animate('0.5s 0.2s ease-out', style({ opacity: 1 }))
     ]),
     transition(':leave', [
       style({ opacity: 1 }),
-      animate('0.25s ease-out', style({ opacity: 0 })),
-    ]),
+      animate('0.25s ease-out', style({ opacity: 0 }))
+    ])
   ]);
 
 export const homeToDemoAnimation =
@@ -27,7 +27,6 @@ export const homeToDemoAnimation =
       query(':enter', [
         style({ right: '-100%'})
       ]),
-      query(':leave', animateChild()),
       group([
         query(':leave', [
           animate('1100ms 200ms ease-in-out', style({ right: '100%'}))
@@ -35,9 +34,8 @@ export const homeToDemoAnimation =
         query(':enter', [
           animate('1100ms 200ms ease-in-out', style({ right: '0%'}))
         ])
-      ]),
-      query(':enter', animateChild()),
-    ]),
+      ])
+    ])
   ]);
 
 export const demoToHomeAnimation =
@@ -55,7 +53,6 @@ export const demoToHomeAnimation =
       query(':enter', [
         style({ left: '-100%'})
       ]),
-      query(':leave', animateChild()),
       group([
         query(':leave', [
           animate('300ms ease-out', style({ left: '100%'}))
@@ -63,9 +60,8 @@ export const demoToHomeAnimation =
         query(':enter', [
           animate('300ms ease-out', style({ left: '0%'}))
         ])
-      ]),
-      query(':enter', animateChild()),
-    ]),
+      ])
+    ])
   ]);
 
 export const homeArtworkAnimation =
@@ -83,7 +79,6 @@ export const homeArtworkAnimation =
       query(':enter', [
         style({ opacity: '0' })
       ]),
-      // query(':leave', animateChild()),
       group([
         query(':leave', [
           animate('500ms ease-out', style({ opacity: '0' }))
@@ -91,7 +86,6 @@ export const homeArtworkAnimation =
         query(':enter', [
           animate('500ms ease-out', style({ opacity: '1' }))
         ])
-      ]),
-      // query(':enter', animateChild()),
-    ]),
+      ])
+    ])
   ]);
