@@ -12,7 +12,7 @@ h1{
 a{
   text-decoration: underline;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #e1e1e1;
   color: #700080;
 }
@@ -21,12 +21,13 @@ a:hover{
   color: #e1e1e1;
   background-color: #700080;
 }
-a:first-of-type{
-  letter-spacing: 4px;
+h2 > a{
+  font-size: 20px;
 }
 p{
+  height: 1px;
   position: relative;
-  // margin-bottom: 150px;
+  margin-bottom: 70px;
 }
 h2{
   text-align: center;
@@ -125,17 +126,18 @@ li span{
   }
 
 }
-@media screen and (min-width: 734px) and (max-width: 1111px){
+
+@media screen and (min-width: 1112px) and (max-width: 1488px){
 
   li:last-of-type{
-    grid-column: 1 / -1;
+    grid-column: 3 / 4;
   }
 
 }
-@media screen and (min-width: 1489px) and (max-width: 1866px){
-
-  li:last-of-type{
-    grid-column: 1 / -1;
-  }
-
-}
+// @media screen and (min-width: 1489px) and (max-width: 1866px){
+//
+//   li:last-of-type{
+//     grid-column: 1 / -1;
+//   }
+//
+// }

@@ -5,12 +5,12 @@ div{
 main{
   display: grid;
   place-items: center;
-  grid-gap: 60px;
+  grid-row-gap: 60px;
   margin-bottom: 5em;
 }
 
 h1{
-  margin: 0 auto 1.5em;
+  margin: 2em auto 2.5em;
   font-family: 'uppereastsideregular';
   font-size: 52px;
   letter-spacing: 6px;
@@ -18,15 +18,15 @@ h1{
   width: 95%;
   color: #3a3a3a;
   position: relative;
-  margin-top: 2em;
 }
 span{
   font-size: 1px;
   color: transparent;
 }
 p{
+  height: 1px;
   position: relative;
-  margin-bottom: 150px;
+  margin-bottom: 70px;
 }
 
 
@@ -139,7 +139,7 @@ button > img{
     width: 200px;
     height: 197px;
     background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
-
+    z-index: -1;
   }
 
   .bottomFlourish::after{
@@ -163,23 +163,28 @@ button > img{
 
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
 
+  main{
+    margin: 0 auto 7em;
+    width: 90%;
+  }
 
   canvas{
-    // background-color: #154a6a;
-    // min-width: 410px;
     grid-row: 1 / 4;
   }
   main > button{
     grid-row: 1 / 2;
   }
 
-
-
-
 }
 
-// @media screen and (min-width: 768px) and (orientation: landscape) {
-//
-// }
+
+
+@media screen and (min-width: 1000px) {
+  main{
+    width: initial;
+    grid-gap: 60px;
+    margin: 0 0 5em;
+  }
+}

@@ -14,9 +14,8 @@ export class ArtworkComponent implements OnInit {
     {src: "../../assets/images/four_seasons.jpg", alt: "Alfons Mucha - 1897 - The Seasons (detail)", title: "The Seasons (detail)", year: "(1897)"},
     {src: "../../assets/images/trappistine.jpg", alt: "Alfons Mucha - 1897 - La Trappistine (detail)", title: "Poster for La Trappistine (detail)", year: "(1897)"},
     {src: "../../assets/images/champagne.jpg", alt: "Alfons Mucha - 1896 - Biscuits Champagne Lefèvre-Utile", title: "Poster for Biscuits Champagne Lefèvre-Utile", year: "(1896)"},
-    {src: "../../assets/images/painting_small.jpg", alt: "Alfons Mucha - 1898 - The Arts: Painting", title: "The Arts: Painting", year: "(1898)"},
     {src: "../../assets/images/fruit.jpg", alt: "Alfons Mucha - 1897 - Fruit", title: "Fruit", year: "(1897)"},
-    {src: "../../assets/images/cycles_small.jpg", alt: "Alfons Mucha - 1902 - Cycles Perfecta", title: "Poster for Cycles Perfecta", year: "(1902)"}
+    {src: "../../assets/images/autumn.jpg", alt: "Alfons Mucha - 1896 - The Seasons: Autumn", title: "The Seasons: Autumn", year: "(1896)"}
   ];
 
   constructor() { }
