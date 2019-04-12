@@ -21,7 +21,7 @@ export class LanguageSelectComponent implements OnInit {
   constructor(
     private data: OptionsService,
     private breakpointObserver: BreakpointObserver
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.data.currentLang$.subscribe(lang => this.lang = lang);
@@ -37,8 +37,6 @@ export class LanguageSelectComponent implements OnInit {
       });
   }
 
-
-
   onLangChange(dir: string) {
     if (dir === 'r') {
       this.currentIndex++;
@@ -50,6 +48,5 @@ export class LanguageSelectComponent implements OnInit {
     }
     this.data.changeLang(this.languages[this.currentIndex % 3]);
   }
-
 
 }

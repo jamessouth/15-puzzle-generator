@@ -1,16 +1,16 @@
 <app-header></app-header>
 <main>
   <app-form
-    (width_tiles)="handleWidthTiles($event)"
-    (width_pixels)="handleWidthPixels($event)"
-    (height_tiles)="handleHeightTiles($event)"
-    (height_pixels)="handleHeightPixels($event)"
+    (widthInTiles)="handleWidthTiles($event)"
+    (widthInPixels)="handleWidthPixels($event)"
+    (heightInTiles)="handleHeightTiles($event)"
+    (heightInPixels)="handleHeightPixels($event)"
     [tileWidth]="tileWidth"
     [tileHeight]="tileHeight"
     [hasLeftoverPxWide]="hasLeftoverPxWide"
     [hasLeftoverPxHigh]="hasLeftoverPxHigh"
   ></app-form>
   <app-language-select [codeReady]="codeReady"></app-language-select>
-  <app-code [width_tiles]="width_tiles" [tileWidth]="tileWidth" [width_pixels]="width_pixels" [height_tiles]="height_tiles" [height_pixels]="height_pixels" [codeReady]="codeReady"></app-code>
+  <app-code [widthInTiles]="widthInTiles" [tileWidth]="tileWidth" [widthInPixels]="widthInPixels" [heightInTiles]="heightInTiles" [heightInPixels]="heightInPixels" [codeReady]="codeReady"></app-code>
 </main>
 <app-footer></app-footer>

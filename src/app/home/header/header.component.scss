@@ -1,11 +1,8 @@
-
-
 header{
   margin: 6.5em 1em 18.5em;
   height: 52px;
   background: url("../../../assets/images/smallbg.jpg") 50% no-repeat;
 }
-
 header:before{
   display: block;
   font-family: 'uppereastsideregular';
@@ -19,15 +16,12 @@ header:before{
   mix-blend-mode: lighten;
   margin-bottom: 1.5em;
 }
-
 h1{
   color: transparent;
   font-size: 1px;
   width: 1px;
   height: 1px;
 }
-
-
 a{
   text-decoration: underline;
   font-family: sans-serif;
@@ -35,12 +29,10 @@ a{
   background-color: #e1e1e1;
   color: #700080;
 }
-
 a:hover{
   color: #e1e1e1;
   background-color: #700080;
 }
-
 @media screen and (min-width: 506px) {
   header{
     height: 3em;
@@ -51,28 +43,24 @@ a:hover{
     letter-spacing: 6px;
   }
 }
-
 @media screen and (min-width: 768px) {
   header{
     height: 5em;
     background: url("../../../assets/images/medbg2.jpg") 50% no-repeat;
     margin-bottom: 13.5em;
   }
-
   header:before{
     font-size: 96px;
     line-height: 88px;
     margin-bottom: .5em;
   }
 }
-
 @media screen and (min-width: 900px) {
   header{
     height: 5em;
     background: url("../../../assets/images/medbg3.jpg") 50% no-repeat;
   }
 }
-
 @media screen and (min-width: 1080px) {
   header{
     height: 9em;
@@ -83,7 +71,6 @@ a:hover{
     line-height: 152px;
   }
 }
-
 @media screen and (min-width: 1300px) {
   header{
     height: 9em;

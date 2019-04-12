@@ -1,8 +1,8 @@
 <pre><code>const canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let canvArray = [], pic = new Image();
-for(let i = 0; i < {{height_tiles}}; i++){{ '{' }}
-&nbsp;&nbsp;for(let j = 0; j < {{width_tiles}}; j++){{ '{' }}
+for(let i = 0; i < {{heightInTiles}}; i++){{ '{' }}
+&nbsp;&nbsp;for(let j = 0; j < {{widthInTiles}}; j++){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;canvArray.push([j * {{tileWidth}}, i * {{tileWidth}}]);
 &nbsp;&nbsp;{{ '}' }}
 {{ '}' }}
@@ -54,18 +54,18 @@ pic.src = '<span [class.greenBackground]="!path">{{path || '[path to your image]
 
 function swapTiles(x, y){{ '{' }}
 &nbsp;&nbsp;if(canvArray.length === 0){{ '{' }}return;{{ '}' }}
-&nbsp;&nbsp;let tileClicked = (Math.floor(y / {{tileWidth}}) * {{width_tiles}}) + Math.floor(x / {{tileWidth}});
+&nbsp;&nbsp;let tileClicked = (Math.floor(y / {{tileWidth}}) * {{widthInTiles}}) + Math.floor(x / {{tileWidth}});
 &nbsp;&nbsp;let blank = boardOrder.indexOf(canvArray.length - 1);
-&nbsp;&nbsp;if(blank % {{width_tiles}} === 0) {{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{width_tiles}}, 1, {{width_tiles}}].includes(tileClicked - blank)) {{ '{' }}
+&nbsp;&nbsp;if(blank % {{widthInTiles}} === 0) {{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{widthInTiles}}, 1, {{widthInTiles}}].includes(tileClicked - blank)) {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
-&nbsp;&nbsp;{{ '}' }} else if((blank + 1) % {{width_tiles}} === 0) {{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{width_tiles}}, -1, {{width_tiles}}].includes(tileClicked - blank)) {{ '{' }}
+&nbsp;&nbsp;{{ '}' }} else if((blank + 1) % {{widthInTiles}} === 0) {{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;if(![-{{widthInTiles}}, -1, {{widthInTiles}}].includes(tileClicked - blank)) {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;{{ '}' }} else {{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;if(![1, {{width_tiles}}].includes(Math.abs(tileClicked - blank))) {{ '{' }}
+&nbsp;&nbsp;&nbsp;&nbsp;if(![1, {{widthInTiles}}].includes(Math.abs(tileClicked - blank))) {{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;{{ '}' }}
@@ -74,7 +74,7 @@ function swapTiles(x, y){{ '{' }}
 &nbsp;&nbsp;ctx.clearRect(canvArray[tileClicked][0], canvArray[tileClicked][1], {{tileWidth}}, {{tileWidth}});
 &nbsp;&nbsp;ctx.drawImage(pic, canvArray[brdInd][0], canvArray[brdInd][1], {{tileWidth}}, {{tileWidth}}, canvArray[blank][0], canvArray[blank][1], {{tileWidth}}, {{tileWidth}});
 &nbsp;&nbsp;[boardOrder[tileClicked], boardOrder[blank]] = [boardOrder[blank], boardOrder[tileClicked]];
-&nbsp;&nbsp;if(boardOrder[0] === 0 && boardOrder[{{width_tiles - 1}}] === {{width_tiles - 1}} && boardOrder[{{width_tiles * (height_tiles - 1) - 1}}] === {{width_tiles * (height_tiles - 1) - 1}} && boardOrder[{{width_tiles * height_tiles - 2}}] === {{width_tiles * height_tiles - 2}}){{ '{' }}
+&nbsp;&nbsp;if(boardOrder[0] === 0 && boardOrder[{{widthInTiles - 1}}] === {{widthInTiles - 1}} && boardOrder[{{widthInTiles * (heightInTiles - 1) - 1}}] === {{widthInTiles * (heightInTiles - 1) - 1}} && boardOrder[{{widthInTiles * heightInTiles - 2}}] === {{widthInTiles * heightInTiles - 2}}){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;finalCheck = true;
 &nbsp;&nbsp;&nbsp;&nbsp;for(let f = 0; f < boardOrder.length; f++){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(boardOrder[f] !== f){{ '{' }}
@@ -84,7 +84,7 @@ function swapTiles(x, y){{ '{' }}
 &nbsp;&nbsp;&nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;{{ '}' }}
 &nbsp;&nbsp;if(finalCheck){{ '{' }}
-&nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, {{(width_tiles - 1) * tileWidth}}, {{(height_tiles - 1) * tileWidth}}, {{tileWidth}}, {{tileWidth}}, {{(width_tiles - 1) * tileWidth}}, {{(height_tiles - 1) * tileWidth}}, {{tileWidth}}, {{tileWidth}});
+&nbsp;&nbsp;&nbsp;&nbsp;ctx.drawImage(pic, {{(widthInTiles - 1) * tileWidth}}, {{(heightInTiles - 1) * tileWidth}}, {{tileWidth}}, {{tileWidth}}, {{(widthInTiles - 1) * tileWidth}}, {{(heightInTiles - 1) * tileWidth}}, {{tileWidth}}, {{tileWidth}});
 &nbsp;&nbsp;&nbsp;&nbsp;canvArray = [];
 &nbsp;&nbsp;{{ '}' }}
 {{ '}' }}

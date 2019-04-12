@@ -15,7 +15,7 @@ function checkBoard(size: number): Array<Array<number>> {
   return [solArray.concat([size - 1]), randos.concat([size - 1])];
 }
 function getInversions(arr: Array<number>): number {
-  let inversions: number = 0;
+  let inversions = 0;
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] == null) { continue; }
     for (let j = 0; j < arr.length; j += 1) {

@@ -4,7 +4,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 *{
 	margin: 0;
 	padding: 0;
@@ -13,12 +12,9 @@
 	text-decoration: none;
 	font-family: 'Mallanna', sans-serif;
 }
-
-
 body{
   background-color: #fbfbfb;
 }
-
 .newwindow::after{
   content: '';
   display: inline-block;

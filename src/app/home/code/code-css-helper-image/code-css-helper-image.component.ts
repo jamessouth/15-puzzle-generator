@@ -6,11 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./code-css-helper-image.component.scss']
 })
 export class CodeCssHelperImageComponent implements OnInit {
-  @Input() width_pixels: number;
+  @Input() widthInPixels: number;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

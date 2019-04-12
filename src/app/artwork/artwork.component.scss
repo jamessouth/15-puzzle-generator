@@ -16,7 +16,6 @@ a{
   background-color: #e1e1e1;
   color: #700080;
 }
-
 a:hover{
   color: #e1e1e1;
   background-color: #700080;
@@ -39,14 +38,10 @@ h3{
   color: #3a3a3a;
   max-width: 90%;
 }
-
-
-
 ul{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
-
 li{
   display: flex;
   flex-direction: column;
@@ -56,23 +51,16 @@ li{
 li img{
   margin-bottom: .75em;
 }
-
 li, li span{
   font-family: 'Poiret One', cursive;
   font-size: 26px;
 }
-
 li span{
   font-style: italic;
   margin-bottom: .5em;
   text-align: center;
 }
-
-
-
-
 @media screen and (min-width: 510px) {
-
   .topFlourish::before{
     content: '';
     display: block;
@@ -82,7 +70,6 @@ li span{
     height: 210px;
     background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
   }
-
   .topFlourish::after{
     content: '';
     display: block;
@@ -94,7 +81,6 @@ li span{
     background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
     transform: rotateY(180deg);
   }
-
   .bottomFlourish::before{
     content: '';
     display: block;
@@ -105,9 +91,7 @@ li span{
     width: 200px;
     height: 197px;
     background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
-
   }
-
   .bottomFlourish::after{
     content: '';
     display: block;
@@ -118,26 +102,19 @@ li span{
     height: 197px;
     background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
   }
-
   ul{
     grid-gap: 0 20px;
     max-width: 90%;
     margin: 0 auto;
   }
-
 }
-
 @media screen and (min-width: 1112px) and (max-width: 1488px) {
-
   li:last-of-type{
     grid-column: 3 / 4;
   }
-
 }
 @media screen and (min-width: 1489px) {
-
   ul{
     grid-template-columns: repeat(4, 1fr);
   }
-
 }

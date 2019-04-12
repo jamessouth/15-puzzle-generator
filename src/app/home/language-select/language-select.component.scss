@@ -1,26 +1,22 @@
 button{
-
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
   cursor: pointer;
   border: none;
   filter: invert(10%);
-
 }
 button:focus{
 	outline: none;
 }
 #lang-select{
   display: grid;
-
   grid: "larrow ctext rarrow" 60% "lcopy . remail" 40% / 52px auto 52px;
   place-items: center;
   width: 90%;
   height: 160px;
   margin-bottom: 4em;
   background: url('../../../assets/images/langbanner.jpg') no-repeat center;
-
   background-size: cover;
 }
 #lang-select button:hover{
@@ -37,23 +33,17 @@ button:focus{
   -ms-user-select: none;
   user-select: none;
 }
-
-
-
 #lang-select span:hover{
   filter: drop-shadow(0px 0px 7px #fff);
 }
-
 button:nth-of-type(1), button:nth-of-type(2){
   background-image: url('../../../assets/images/arrow.png');
   width: 50px;
   height: 64px;
 }
-
 button:nth-of-type(1){
   grid-area: larrow;
 }
-
 button:nth-of-type(2){
   transform: rotateZ(180deg);
   grid-area: rarrow;
@@ -67,7 +57,6 @@ button:nth-of-type(2){
   height: 24px;
   width: 24px;
 }
-
 #copy{
   background-image: url('../../../assets/images/copy.png');
   grid-area: lcopy;
@@ -106,7 +95,6 @@ button:nth-of-type(2){
     font-size: 72px;
   }
 }
-
 @media screen and (min-width: 768px) {
   #lang-select{
     grid: ". larrow ctext ctext rarrow ." 60% ". . lcopy remail . ." 40% / 10% 52px 1fr 1fr 52px 10%;

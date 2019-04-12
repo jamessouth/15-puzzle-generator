@@ -1,14 +1,12 @@
 div{
   position: relative;
 }
-
 main{
   display: grid;
   place-items: center;
   grid-row-gap: 60px;
   margin-bottom: 5em;
 }
-
 h1{
   margin: 2em auto 2.5em;
   font-family: 'uppereastsideregular';
@@ -28,9 +26,6 @@ p{
   position: relative;
   margin-bottom: 70px;
 }
-
-
-
 canvas{
   background-color: #154a6a;
   min-width: 410px;
@@ -42,8 +37,6 @@ main > button{
 button > img{
   vertical-align: bottom;
 }
-
-
 .helpBtn{
   width: 205px;
   height: 54px;
@@ -57,8 +50,6 @@ button > img{
 .helpBtn:focus{
   border-color: #154a6a;
 }
-
-
 @keyframes stretch {
   0% {
     transform: translateX(-50%) rotateX(-89deg);
@@ -79,9 +70,6 @@ button > img{
     transform: translateX(-50%) rotateX(0deg);
   }
 }
-
-
-
 .resetStylesBtn{
   transform-origin: center top 0px;
   background: linear-gradient(41deg, #bf2b1d 16%, #380c00 113%);
@@ -103,10 +91,7 @@ button > img{
 .helpImgStyles{
   width: 205px;
 }
-
-
 @media screen and (min-width: 510px) {
-
   .topFlourish::before{
     content: '';
     display: block;
@@ -116,7 +101,6 @@ button > img{
     height: 210px;
     background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
   }
-
   .topFlourish::after{
     content: '';
     display: block;
@@ -128,7 +112,6 @@ button > img{
     background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
     transform: rotateY(180deg);
   }
-
   .bottomFlourish::before{
     content: '';
     display: block;
@@ -141,7 +124,6 @@ button > img{
     background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
     z-index: -1;
   }
-
   .bottomFlourish::after{
     content: '';
     display: block;
@@ -152,35 +134,19 @@ button > img{
     height: 197px;
     background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
   }
-
-
-
-
-
 }
-
-
-
-
-
 @media screen and (min-width: 800px) {
-
   main{
     margin: 0 auto 7em;
     width: 90%;
   }
-
   canvas{
     grid-row: 1 / 4;
   }
   main > button{
     grid-row: 1 / 2;
   }
-
 }
-
-
-
 @media screen and (min-width: 1000px) {
   main{
     width: initial;

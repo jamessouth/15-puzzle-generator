@@ -7,59 +7,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  width_tiles: number;
-  width_pixels: number;
-  height_tiles: number;
-  height_pixels: number;
-
-
-
+  widthInTiles: number;
+  widthInPixels: number;
+  heightInTiles: number;
+  heightInPixels: number;
   tileWidth = 0;
   tileHeight = 0;
   hasLeftoverPxWide: boolean;
   hasLeftoverPxHigh: boolean;
   codeReady: boolean;
 
+  constructor() {}
 
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   updateWidthProps() {
-    this.tileWidth = this.width_pixels / this.width_tiles;
-    this.hasLeftoverPxWide = this.width_pixels % this.width_tiles !== 0;
-    this.codeReady = this.width_pixels > 0 && this.height_pixels > 0 && this.tileWidth === this.tileHeight && !this.hasLeftoverPxHigh && !this.hasLeftoverPxWide;
+    this.tileWidth = this.widthInPixels / this.widthInTiles;
+    this.hasLeftoverPxWide = this.widthInPixels % this.widthInTiles !== 0;
+    this.codeReady = this.widthInPixels > 0 && this.heightInPixels > 0 &&
+      this.tileWidth === this.tileHeight && !this.hasLeftoverPxHigh && !this.hasLeftoverPxWide;
   }
 
   updateHeightProps() {
-    this.tileHeight = this.height_pixels / this.height_tiles;
-    this.hasLeftoverPxHigh = this.height_pixels % this.height_tiles !== 0;
-    this.codeReady = this.width_pixels > 0 && this.height_pixels > 0 && this.tileWidth === this.tileHeight && !this.hasLeftoverPxHigh && !this.hasLeftoverPxWide;
+    this.tileHeight = this.heightInPixels / this.heightInTiles;
+    this.hasLeftoverPxHigh = this.heightInPixels % this.heightInTiles !== 0;
+    this.codeReady = this.widthInPixels > 0 && this.heightInPixels > 0 &&
+      this.tileWidth === this.tileHeight && !this.hasLeftoverPxHigh && !this.hasLeftoverPxWide;
   }
 
   handleWidthTiles(e) {
-    console.log(e);
-    this.width_tiles = e;
+    this.widthInTiles = e;
     this.updateWidthProps();
   }
 
   handleWidthPixels(e) {
-    console.log(e);
-    this.width_pixels = e;
+    this.widthInPixels = e;
     this.updateWidthProps();
   }
 
   handleHeightTiles(e) {
-    console.log(e);
-    this.height_tiles = e;
+    this.heightInTiles = e;
     this.updateHeightProps();
   }
 
   handleHeightPixels(e) {
-    console.log(e);
-    this.height_pixels = e;
+    this.heightInPixels = e;
     this.updateHeightProps();
   }
 

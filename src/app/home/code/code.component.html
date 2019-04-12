@@ -1,23 +1,18 @@
-<div [class.codeOverlay]="!codeReady" id="copy-email">
-</div>
+<div [class.codeOverlay]="!codeReady" id="copy-email"></div>
 <div [class.blurry]="!codeReady" id="code">
-
   <ng-container *ngIf="lang === 'HTML'">
-    <app-code-html [width_pixels]="width_pixels" [height_pixels]="height_pixels"></app-code-html>
-    <app-code-html-helper-image *ngIf="helper_image"></app-code-html-helper-image>
+    <app-code-html [widthInPixels]="widthInPixels" [heightInPixels]="heightInPixels"></app-code-html>
+    <app-code-html-helper-image *ngIf="helperImage"></app-code-html-helper-image>
   </ng-container>
-
   <ng-container *ngIf="lang === 'CSS'">
-    <app-code-css [width_pixels]="width_pixels"></app-code-css>
-    <app-code-css-helper-image [width_pixels]="width_pixels" *ngIf="helper_image"></app-code-css-helper-image>
+    <app-code-css [widthInPixels]="widthInPixels"></app-code-css>
+    <app-code-css-helper-image [widthInPixels]="widthInPixels" *ngIf="helperImage"></app-code-css-helper-image>
   </ng-container>
-
   <ng-container *ngIf="lang.includes('J')">
     <app-code-js
-    [width_tiles]="width_tiles"
-    [height_tiles]="height_tiles"
+    [widthInTiles]="widthInTiles"
+    [heightInTiles]="heightInTiles"
     [tileWidth]="tileWidth"
     ></app-code-js>
   </ng-container>
-
 </div>

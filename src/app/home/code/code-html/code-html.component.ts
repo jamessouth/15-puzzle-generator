@@ -6,13 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./code-html.component.scss']
 })
 export class CodeHtmlComponent implements OnInit {
-  @Input() width_pixels: number;
-  @Input() height_pixels: number;
-
+  @Input() widthInPixels: number;
+  @Input() heightInPixels: number;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

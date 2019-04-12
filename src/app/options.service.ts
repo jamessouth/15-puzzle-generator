@@ -22,10 +22,13 @@ export class OptionsService {
   changeColor(color: string): void {
     this.defaultColor.next(color);
   }
+
   changePath(path: string): void {
     this.defaultPath.next(path);
   }
-  changeHelpImg(helper_image: boolean): void {
-    this.defaultHelpImg.next(helper_image);
+
+  changeHelpImg(helperImage: boolean): void {
+    this.defaultHelpImg.next(helperImage);
   }
+
 }

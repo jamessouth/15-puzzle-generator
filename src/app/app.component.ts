@@ -4,7 +4,7 @@ import { homeToDemoAnimation, demoToHomeAnimation, homeArtworkAnimation } from '
 
 @Component({
   selector: 'app-root',
-  template: '<div [@homeToDemoAnimation]="prepareRoute(outlet)" [@demoToHomeAnimation]="prepareRoute(outlet)" [@homeArtworkAnimation]="prepareRoute(outlet)"><router-outlet #outlet="outlet"></router-outlet></div>',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
     homeToDemoAnimation,
@@ -14,6 +14,6 @@ import { homeToDemoAnimation, demoToHomeAnimation, homeArtworkAnimation } from '
 })
 export class AppComponent {
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData[animation];
   }
 }

@@ -7,16 +7,16 @@ import { OptionsService } from '../../options.service';
   styleUrls: ['./code.component.scss']
 })
 export class CodeComponent implements OnInit {
-  @Input() width_tiles: number;
-  @Input() width_pixels: number;
-  @Input() height_tiles: number;
-  @Input() height_pixels: number;
+  @Input() widthInTiles: number;
+  @Input() widthInPixels: number;
+  @Input() heightInTiles: number;
+  @Input() heightInPixels: number;
   @Input() tileWidth: number;
   @Input() codeReady: boolean;
 
   color: string;
   path: string;
-  helper_image: boolean;
+  helperImage: boolean;
   lang: string;
 
   constructor(private data: OptionsService) { }
@@ -24,7 +24,7 @@ export class CodeComponent implements OnInit {
   ngOnInit() {
     this.data.currentColor$.subscribe(color => this.color = color);
     this.data.currentPath$.subscribe(path => this.path = path);
-    this.data.currentHelpImg$.subscribe(helper_image => this.helper_image = helper_image);
+    this.data.currentHelpImg$.subscribe(helperImage => this.helperImage = helperImage);
     this.data.currentLang$.subscribe(lang => this.lang = lang);
   }
 

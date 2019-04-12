@@ -7,7 +7,7 @@ import { OptionsService } from '../../../options.service';
   styleUrls: ['./code-css.component.scss']
 })
 export class CodeCssComponent implements OnInit {
-  @Input() width_pixels: number;
+  @Input() widthInPixels: number;
 
   color: string;
 
