@@ -46,6 +46,7 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
+              "baseHref": "/fifteen-puzzle-generator/",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
