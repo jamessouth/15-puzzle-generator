@@ -10,10 +10,10 @@
       Your browser does not support canvas.
     </canvas>
     <button (click)="helpOpen = !helpOpen" type="button" class="helpBtn">
-      <img alt="help" *ngIf="!helpOpen" src='../assets/images/help.png'/>
-      <img alt="help" *ngIf="helpOpen" src='../assets/images/hide.png'/>
+      <img alt="help" *ngIf="!helpOpen" src='/assets/images/help.png'/>
+      <img alt="hide" *ngIf="helpOpen" src='/assets/images/hide.png'/>
     </button>
-    <img class="helpImgStyles" *ngIf="helpOpen" src="../assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
+    <img class="helpImgStyles" *ngIf="helpOpen" src="/assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
   </main>
   <p class="bottomFlourish"></p>
 </div>

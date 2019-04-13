@@ -20,6 +20,7 @@
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "progress": true,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
@@ -48,7 +49,7 @@
               "aot": true,
               "baseHref": "/fifteen-puzzle-generator/",
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {
