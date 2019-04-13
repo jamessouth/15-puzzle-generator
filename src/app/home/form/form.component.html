@@ -5,7 +5,6 @@
       <label>Color for the blank tile: <input #colorbox [ngModel]="color" (ngModelChange)="onColorChange(colorbox.value)" name="color" type="color"></label>
       <label>Image Width in pixels: <input #widthInPixelsbox="ngModel" [ngModel]="widthInPixels" class="num" (ngModelChange)="onWidthPixelsChange(widthInPixelsbox.value)" name="widthInPixels" form="form" placeholder="Enter a number" min="1" type="number"/></label>
       <label>Image Height in pixels: <input #heightInPixelsbox="ngModel" [ngModel]="heightInPixels" class="num" (ngModelChange)="onHeightPixelsChange(heightInPixelsbox.value)" name="heightInPixels" form="form" placeholder="Enter a number" min="1" type="number"/></label>
-      <p class="warning" *ngIf="widthInPixels.pristine || heightInPixels.pristine">Please enter numbers for width and height.</p>
       <p id="puzz">Puzzle Dimensions:</p>
       <label>Width:&nbsp;
         <select #widthInTilesbox name="widthInTiles" [ngModel]="widthInTiles" (ngModelChange)="onWidthTilesChange(widthInTilesbox.value)">
