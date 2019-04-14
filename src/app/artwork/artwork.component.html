@@ -1,11 +1,13 @@
 <div>
-   <h1 class="topFlourish">ARTWORK</h1>
-   <h2>All art by <a class="newwindow" rel="noopener noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Alphonse_Mucha">Alfons Mucha</a></h2>
-   <h3>All works are public domain, via <a class="newwindow" rel="noopener noreferrer" target="_blank" href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a></h3>
-   <ul>
-     <li *ngFor="let art of artwork">
-       <div [attr.class]="art.class" [attr.title]="art.title"></div>
-       <span>{{art.title}}</span> {{art.year}}</li>
-   </ul>
-   <p class="bottomFlourish"></p>
- </div>
+  <h1 class="topFlourish">
+    <span class="spacer">.</span>ARTWORK
+  </h1>
+  <h2>All art by <a class="newwindow" rel="noopener noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Alphonse_Mucha">Alfons Mucha</a></h2>
+  <h3>All works are public domain, via <a class="newwindow" rel="noopener noreferrer" target="_blank" href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia Commons</a></h3>
+  <ul>
+    <li *ngFor="let art of artwork">
+      <div [attr.class]="art.class" [attr.title]="art.title"></div>
+      <span>{{art.title}}</span> {{art.year}}</li>
+  </ul>
+  <p class="bottomFlourish"></p>
+</div>
