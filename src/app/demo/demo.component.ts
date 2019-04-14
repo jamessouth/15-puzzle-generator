@@ -116,7 +116,7 @@ export class DemoComponent implements OnInit, OnDestroy {
           this.canvArray[arr[i]][0], this.canvArray[arr[i]][1], 82, 82);
       }
     };
-    this.pic.src = '../../assets/images/mucha.jpg';
+    this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
   }
 
 }
