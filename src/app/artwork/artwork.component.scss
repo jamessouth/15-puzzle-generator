@@ -25,8 +25,9 @@ h2 > a{
 }
 p{
   height: 1px;
+  width: 96.5%;
   position: relative;
-  margin-bottom: 70px;
+  margin: 0 auto 70px;
 }
 h2{
   text-align: center;
@@ -45,10 +46,10 @@ ul{
 li{
   display: flex;
   flex-direction: column;
-  margin: 0 .5em 2em;
+  margin-bottom: 2em;
   align-items: center;
 }
-li img{
+li div{
   margin-bottom: .75em;
 }
 li, li span{
@@ -57,8 +58,48 @@ li, li span{
 }
 li span{
   font-style: italic;
-  margin-bottom: .5em;
+  margin: 0 .5em .5em;
   text-align: center;
+}
+.biscuits{
+  width: 173px;
+  height: 239px;
+  background: url('../../assets/images/biscuits.jpg') center/contain no-repeat;
+}
+.cal{
+  width: 177px;
+  height: 240px;
+  background: url('../../assets/images/champenois.jpg') center/contain no-repeat;
+}
+.bouquet{
+  width: 320px;
+  height: 200px;
+  background: url('../../assets/images/bouquet.jpg') center/contain no-repeat;
+}
+.four{
+  width: 320px;
+  height: 173px;
+  background: url('../../assets/images/four_seasons.jpg') center/contain no-repeat;
+}
+.trap{
+  width: 135px;
+  height: 240px;
+  background: url('../../assets/images/trappistine.jpg') center/contain no-repeat;
+}
+.champ{
+  width: 164px;
+  height: 240px;
+  background: url('../../assets/images/champagne.jpg') center/contain no-repeat;
+}
+.fruit{
+  width: 143px;
+  height: 240px;
+  background: url('../../assets/images/fruit.jpg') center/contain no-repeat;
+}
+.fall{
+  width: 121px;
+  height: 239px;
+  background: url('../../assets/images/autumn.jpg') center/contain no-repeat;
 }
 @media screen and (min-width: 510px) {
   .topFlourish::before{
@@ -103,17 +144,16 @@ li span{
     background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
   }
   ul{
-    grid-gap: 0 20px;
-    max-width: 90%;
+    width: 90%;
     margin: 0 auto;
   }
 }
-@media screen and (min-width: 1112px) and (max-width: 1488px) {
+@media screen and (min-width: 1067px) and (max-width: 1422px) {
   li:last-of-type{
     grid-column: 3 / 4;
   }
 }
-@media screen and (min-width: 1489px) {
+@media screen and (min-width: 1423px) {
   ul{
     grid-template-columns: repeat(4, 1fr);
   }

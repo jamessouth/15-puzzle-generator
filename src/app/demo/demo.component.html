@@ -9,11 +9,9 @@
     <canvas (click)="swapTiles($event.offsetX, $event.offsetY)" width="410" height="574">
       Your browser does not support canvas.
     </canvas>
-    <button (click)="helpOpen = !helpOpen" type="button" class="helpBtn">
-      <img alt="help" *ngIf="!helpOpen" src='../../assets/images/help.png'/>
-      <img alt="hide" *ngIf="helpOpen" src='../../assets/images/hide.png'/>
+    <button [class.one]="!helpOpen" [class.two]="helpOpen" (click)="helpOpen = !helpOpen" type="button" class="helpBtn">
     </button>
-    <img class="helpImgStyles" *ngIf="helpOpen" src="../../assets/images/mucha.jpg" alt="Alfons Mucha - 1896 - Biscuits Champagne-Lefèvre-Utile.jpg"/>
+    <div class="helpImgStyles" *ngIf="helpOpen"></div>
   </main>
   <p class="bottomFlourish"></p>
 </div>

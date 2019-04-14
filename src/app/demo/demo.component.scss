@@ -34,18 +34,22 @@ canvas{
 main > button{
   grid-row: 2 / 3;
 }
-button > img{
-  vertical-align: bottom;
-}
 .helpBtn{
   width: 205px;
   height: 54px;
-  background: linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
   border: 2px solid;
+  background-position: center;
+  background-repeat: no-repeat;
   filter: none;
   border-color: #aaa;
   cursor: pointer;
   outline: none;
+}
+.one{
+  background-image: url('../../assets/images/help.png'), linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
+}
+.two{
+  background-image: url('../../assets/images/hide.png'), linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
 }
 .helpBtn:focus{
   border-color: #154a6a;
@@ -90,6 +94,8 @@ button > img{
 }
 .helpImgStyles{
   width: 205px;
+  height: 287px;
+  background: url('../../assets/images/mucha.jpg') center/contain no-repeat;
 }
 @media screen and (min-width: 510px) {
   .topFlourish::before{
