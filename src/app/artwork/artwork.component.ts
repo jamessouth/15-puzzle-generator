@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Artwork from './artwork';
 
 @Component({
   selector: 'app-artwork',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtworkComponent implements OnInit {
 
-  artwork = [
+  artwork: Array<Artwork> = [
     {
       class: 'biscuits',
       title: 'Poster for Biscuits Lefèvre-Utile',
