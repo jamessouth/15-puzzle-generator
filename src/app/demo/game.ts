@@ -1,32 +1,54 @@
+import canvArray from './canvArray';
+
 export default class Game {
 
-  private _gameOver: boolean;
+  private _gameOver: boolean = false;
   private _pic: HTMLImageElement = new Image();
+
+  private setDrawOrder(arr: Array<number>) {
+    const drawOrder = [];
+    arr.forEach((x, i) => {
+      drawOrder[x] = i;
+    });
+    this._drawOrder = drawOrder;
+  }
 
   constructor(
     private _ctx: CanvasRenderingContext2D,
     private _boardOrder: Array<number>,
-    private _drawOrder: Array<number>,
-
-  ) {}
-
-  static saveGame(arr): void {
-    const savedGame = JSON.stringify(arr);
-    sessionStorage.setItem('boardOrder', savedGame);
+    private _drawOrder: Array<number>
+  ) {
+    this._pic.onload = () => {
+      for (let i = 0; i < canvArray.length - 1; i++) {
+        this._ctx.drawImage(
+          this._pic,
+          canvArray[i][0],
+          canvArray[i][1],
+          82,
+          82,
+          canvArray[this._drawOrder[i]][0],
+          canvArray[this._drawOrder[i]][1],
+          82,
+          82
+        );
+      }
+    };
+    this._pic.src = '../../mucha.jpg';
+    // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
   }
 
-  static resetGame() {
-    this.gameOver = false;
-    sessionStorage.clear();
-    this.ctx.clearRect(0, 0, 410, 574);
-    [this.boardOrder, this.drawOrder] = getBoardOrder(35);
-    this.useCanvas(this.drawOrder, 1);
+  saveGame(): void {
+    this.setDrawOrder(this._boardOrder);
+    const payload: string = JSON.stringify([this._boardOrder, this._drawOrder, this._gameOver]);
+    sessionStorage.setItem('savedGame', payload);
   }
 
-  swapTiles(x, y) {
-    if (this.gameOver) { return; }
+
+
+  swapTiles(x, y): void {
+    if (this._gameOver) { return; }
     const tileClicked = (Math.floor(y / 82) * 5) + Math.floor(x / 82);
-    const blank = this.boardOrder.indexOf(canvArray.length - 1);
+    const blank = this._boardOrder.indexOf(canvArray.length - 1);
     if (blank % 5 === 0) {
       if (![-5, 1, 5].includes(tileClicked - blank)) {
         return;
@@ -41,10 +63,15 @@ export default class Game {
       }
     }
     let interimCheck;
-    const brdInd = this.boardOrder[tileClicked];
-    this.ctx.clearRect(canvArray[tileClicked][0], canvArray[tileClicked][1], 82, 82);
-    this.ctx.drawImage(
-      this.pic,
+    const brdInd = this._boardOrder[tileClicked];
+    this._ctx.clearRect(
+      canvArray[tileClicked][0],
+      canvArray[tileClicked][1],
+      82,
+      82
+    );
+    this._ctx.drawImage(
+      this._pic,
       canvArray[brdInd][0],
       canvArray[brdInd][1],
       82,
@@ -54,13 +81,13 @@ export default class Game {
       82,
       82
     );
-    [this.boardOrder[tileClicked], this.boardOrder[blank]] = [this.boardOrder[blank], this.boardOrder[tileClicked]];
-    if (this.boardOrder[0] === 0 && this.boardOrder[4] === 4 && this.boardOrder[29] === 29 && this.boardOrder[33] === 33) {
-      interimCheck = this.checkForWin(this.boardOrder);
+    [this._boardOrder[tileClicked], this._boardOrder[blank]] = [this._boardOrder[blank], this._boardOrder[tileClicked]];
+    if (this._boardOrder[0] === 0 && this._boardOrder[4] === 4 && this._boardOrder[29] === 29 && this._boardOrder[33] === 33) {
+      interimCheck = this.checkForWin(this._boardOrder);
     }
     if (interimCheck) {
-      this.ctx.drawImage(this.pic, 328, 492, 82, 82, 328, 492, 82, 82);
-      this.gameOver = true;
+      this._ctx.drawImage(this._pic, 328, 492, 82, 82, 328, 492, 82, 82);
+      this._gameOver = true;
     }
   }
 
@@ -73,28 +100,6 @@ export default class Game {
       }
     }
     return finalCheck;
-  }
-
-  useCanvas(arr, gameFinished) {
-    this.pic.onload = () => {
-      for (let i = 0; i < canvArray.length - gameFinished; i++) {
-        this.ctx.drawImage(
-          this.pic,
-          canvArray[i][0],
-          canvArray[i][1],
-          82,
-          82,
-          canvArray[arr[i]][0],
-          canvArray[arr[i]][1],
-          82,
-          82
-        );
-      }
-    };
-    this.pic.src = '../../mucha.jpg';
-    // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
-
-
   }
 
 

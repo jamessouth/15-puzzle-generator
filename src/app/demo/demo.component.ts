@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { getBoardOrder } from './demo.utils';
-import canvArray from './canvArray';
+import Game from './game';
+
 
 @Component({
   selector: 'app-demo',
@@ -12,7 +13,9 @@ export class DemoComponent implements OnInit, OnDestroy {
   // gameOver: boolean;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  // pic = new Image();
+  // pic:
+  game: Game;
+
   // boardOrder: Array<number>;
   // drawOrder: Array<number>;
 
@@ -21,45 +24,61 @@ export class DemoComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.canvas = document.querySelector('canvas');
     this.ctx = this.canvas.getContext('2d');
-    let payload: [Array<number>, Array<number>, string];
+    let payload;
     try {
-      payload = JSON.parse(sessionStorage.getItem('payload'));
+      payload = JSON.parse(sessionStorage.getItem('savedGame'));
     } catch (e) {
       sessionStorage.removeItem('payload');
     }
-    switch (status) {
-      case '0':
-        // do something
-        break;
-      case '1':
-        // do something
-        break;
-      case '2':
-        // do something
-        break;
-      default:
-        // joijoijoijo
+    if (payload) {
+
+      switch (payload[2]) {
+        case true:
+          // this.ctx.drawImage(this.pic, 0, 0);
+          break;
+        case false:
+          console.log(payload);
+          this.game = new Game(
+            this.ctx,
+            payload[0],
+            payload[1]
+          );
+
+          break;
+        // default:
+
+      }
+    } else {
+
+      const [boardOrder, drawOrder] = getBoardOrder(35);
+      this.game = new Game(
+        this.ctx,
+        boardOrder,
+        drawOrder
+      );
 
     }
-
-
-      if (this.checkForWin(game)) {
-        // just draw the image, game already won
-        // this.useCanvas(drawOrder, 0);
-        // this.gameOver = true;
-      } else {
-      // continue previous game
-        this.useCanvas(drawOrder, 1);
-      }
-
-      // new game
-      [this.boardOrder, this.drawOrder] = getBoardOrder(35);
-      this.useCanvas(this.drawOrder, 1);
 
   }
 
   ngOnDestroy() {
-    this.saveGame(this.boardOrder);
+    this.game.saveGame();
   }
+
+  swapTiles(x, y): void {
+    this.game.swapTiles(x, y);
+  }
+
+  resetGame() {
+    // this.gameOver = false;
+    sessionStorage.clear();
+    this.ctx.clearRect(0, 0, 410, 574);
+    const [boardOrder, drawOrder] = getBoardOrder(35);
+    this.game = new Game(
+      this.ctx,
+      boardOrder,
+      drawOrder
+    );
+  };
 
 }
