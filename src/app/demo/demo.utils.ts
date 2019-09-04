@@ -33,14 +33,5 @@ function getBoardOrder(size: number): Array<Array<number>> {
   }
   return doable;
 }
-function getCanvArray(height: number, width: number): Array<Array<number>> {
-  const canvArray: Array<Array<number>> = [];
-  for (let i = 0; i < height; i += 1) {
-    for (let j = 0; j < width; j += 1) {
-      canvArray.push([j * 82, i * 82]);
-    }
-  }
-  return canvArray;
-}
 
-export { getBoardOrder, getCanvArray };
+export { getBoardOrder };
