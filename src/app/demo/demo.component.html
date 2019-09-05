@@ -2,7 +2,7 @@
   <h1 class="topFlourish">
     <span>.</span>DEMO
   </h1>
-  <button *ngIf="gameOver" (click)="resetGame()" type="button" class="resetStylesBtn">
+  <button *ngIf="game && game._gameOver" (click)="resetGame()" type="button" class="resetStylesBtn">
     Reset
   </button>
   <main>

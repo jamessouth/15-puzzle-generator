@@ -11,9 +11,10 @@ import Game from './game';
 export class DemoComponent implements OnInit, OnDestroy {
 
   // gameOver: boolean;
+  helpOpen = false;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  // pic:
+  pic: HTMLImageElement = new Image();
   game: Game;
 
   // boardOrder: Array<number>;
@@ -34,7 +35,15 @@ export class DemoComponent implements OnInit, OnDestroy {
 
       switch (payload[2]) {
         case true:
-          // this.ctx.drawImage(this.pic, 0, 0);
+
+
+          this.pic.onload = () => {
+            this.ctx.drawImage(this.pic, 0, 0);
+
+
+          }
+          this.pic.src = '../../mucha.jpg';
+          // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
           break;
         case false:
           console.log(payload);
@@ -62,11 +71,11 @@ export class DemoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.game.saveGame();
+    this.game && this.game.saveGame();
   }
 
   swapTiles(x, y): void {
-    this.game.swapTiles(x, y);
+    this.game && this.game.swapTiles(x, y);
   }
 
   resetGame() {
