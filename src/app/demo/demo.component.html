@@ -2,11 +2,11 @@
   <h1 class="topFlourish">
     <span>.</span>DEMO
   </h1>
-  <button *ngIf="game && game._gameOver" (click)="resetGame()" type="button" class="resetStylesBtn">
+  <button *ngIf="showReset || game._gameOver" (click)="resetGame()" type="button" class="resetStylesBtn">
     Reset
   </button>
   <main>
-    <canvas (click)="swapTiles($event.offsetX, $event.offsetY)" width="410" height="574">
+    <canvas (click)="game && game.swapTiles($event.offsetX, $event.offsetY)" width="410" height="574">
       Your browser does not support canvas.
     </canvas>
     <button [class.one]="!helpOpen" [class.two]="helpOpen" (click)="helpOpen = !helpOpen" type="button" class="helpBtn">

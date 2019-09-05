@@ -10,15 +10,12 @@ import Game from './game';
 })
 export class DemoComponent implements OnInit, OnDestroy {
 
-  // gameOver: boolean;
+  showReset: boolean = false;
   helpOpen = false;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   pic: HTMLImageElement = new Image();
   game: Game;
-
-  // boardOrder: Array<number>;
-  // drawOrder: Array<number>;
 
   constructor() {}
 
@@ -32,54 +29,43 @@ export class DemoComponent implements OnInit, OnDestroy {
       sessionStorage.removeItem('payload');
     }
     if (payload) {
-
       switch (payload[2]) {
         case true:
-
-
           this.pic.onload = () => {
             this.ctx.drawImage(this.pic, 0, 0);
-
-
           }
           this.pic.src = '../../mucha.jpg';
           // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
+          this.showReset = true;
           break;
         case false:
-          console.log(payload);
           this.game = new Game(
             this.ctx,
             payload[0],
             payload[1]
           );
-
           break;
-        // default:
-
       }
     } else {
-
       const [boardOrder, drawOrder] = getBoardOrder(35);
       this.game = new Game(
         this.ctx,
         boardOrder,
         drawOrder
       );
-
     }
-
   }
 
   ngOnDestroy() {
     this.game && this.game.saveGame();
   }
 
-  swapTiles(x, y): void {
-    this.game && this.game.swapTiles(x, y);
-  }
+  // swapTiles(x, y): void {
+  //   this.game && this.game.swapTiles(x, y);
+  // }
 
   resetGame() {
-    // this.gameOver = false;
+    this.showReset = false;
     sessionStorage.clear();
     this.ctx.clearRect(0, 0, 410, 574);
     const [boardOrder, drawOrder] = getBoardOrder(35);

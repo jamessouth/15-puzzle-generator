@@ -2,7 +2,7 @@ import canvArray from './canvArray';
 
 export default class Game {
 
-  _gameOver: boolean = false;
+  public _gameOver: boolean = false;
   private _pic: HTMLImageElement = new Image();
 
   private setDrawOrder(arr: Array<number>) {
