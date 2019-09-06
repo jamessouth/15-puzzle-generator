@@ -3,8 +3,7 @@ import { OptionsService } from '../../../options.service';
 
 @Component({
   selector: 'app-code-js',
-  templateUrl: './code-js.component.html',
-  styleUrls: ['./code-js.component.scss']
+  templateUrl: './code-js.component.html'
 })
 export class CodeJsComponent implements OnInit {
   @Input() tileWidth: number;

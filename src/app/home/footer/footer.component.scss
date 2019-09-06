@@ -4,13 +4,13 @@ a{
   font-size: 14px;
   background-color: #e1e1e1;
   color: #700080;
-}
-a:hover{
-  color: #e1e1e1;
-  background-color: #700080;
-}
-a:first-of-type{
-  letter-spacing: 4px;
+  &:hover{
+    color: #e1e1e1;
+    background-color: #700080;
+  }
+  &:first-of-type{
+    letter-spacing: 4px;
+  }
 }
 p{
   margin: 0;
