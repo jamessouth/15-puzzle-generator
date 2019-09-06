@@ -2,7 +2,7 @@ import canvArray from './canvArray';
 
 export default class Game {
 
-  public _gameOver: boolean = false;
+  public _gameOver = false;
   private _pic: HTMLImageElement = new Image();
 
   private setDrawOrder(arr: Array<number>) {
@@ -43,37 +43,33 @@ export default class Game {
     sessionStorage.setItem('savedGame', payload);
   }
 
-
-
-  swapTiles(x, y): void {
-    if (this._gameOver) { return; }
-    const tileClicked = (Math.floor(y / 82) * 5) + Math.floor(x / 82);
-    const blank = this._boardOrder.indexOf(canvArray.length - 1);
+  private _isInvalidTile(tile, blank): boolean {
     if (blank % 5 === 0) {
-      if (![-5, 1, 5].includes(tileClicked - blank)) {
-        return;
+      if (![-5, 1, 5].includes(tile - blank)) {
+        return true;
       }
     } else if ((blank + 1) % 5 === 0) {
-      if (![-5, -1, 5].includes(tileClicked - blank)) {
-        return;
+      if (![-5, -1, 5].includes(tile - blank)) {
+        return true;
       }
     } else {
-      if (![1, 5].includes(Math.abs(tileClicked - blank))) {
-        return;
+      if (![1, 5].includes(Math.abs(tile - blank))) {
+        return true;
       }
     }
-    let interimCheck;
-    const brdInd = this._boardOrder[tileClicked];
+  }
+
+  private _updateCanvas(tile, ind, blank): void {
     this._ctx.clearRect(
-      canvArray[tileClicked][0],
-      canvArray[tileClicked][1],
+      canvArray[tile][0],
+      canvArray[tile][1],
       82,
       82
     );
     this._ctx.drawImage(
       this._pic,
-      canvArray[brdInd][0],
-      canvArray[brdInd][1],
+      canvArray[ind][0],
+      canvArray[ind][1],
       82,
       82,
       canvArray[blank][0],
@@ -81,7 +77,21 @@ export default class Game {
       82,
       82
     );
-    [this._boardOrder[tileClicked], this._boardOrder[blank]] = [this._boardOrder[blank], this._boardOrder[tileClicked]];
+  }
+
+  private _updateBoardOrder(tile, blank): void {
+    [this._boardOrder[tile], this._boardOrder[blank]] = [this._boardOrder[blank], this._boardOrder[tile]];
+  }
+
+  swapTiles(x, y): void {
+    if (this._gameOver) { return; }
+    const tileClicked = (Math.floor(y / 82) * 5) + Math.floor(x / 82);
+    const blank = this._boardOrder.indexOf(canvArray.length - 1);
+    if (this._isInvalidTile(tileClicked, blank)) { return; }
+    let interimCheck;
+    const brdInd = this._boardOrder[tileClicked];
+    this._updateCanvas(tileClicked, brdInd, blank);
+    this._updateBoardOrder(tileClicked, blank);
     if (this._boardOrder[0] === 0 && this._boardOrder[4] === 4 && this._boardOrder[29] === 29 && this._boardOrder[33] === 33) {
       interimCheck = this.checkForWin(this._boardOrder);
     }
@@ -101,6 +111,5 @@ export default class Game {
     }
     return finalCheck;
   }
-
 
 }

@@ -26,12 +26,10 @@ function getInversions(arr: Array<number>): number {
   }
   return inversions;
 }
-function getBoardOrder(size: number): Array<Array<number>> {
+export default function getBoardOrder(size: number): Array<Array<number>> {
   let doable = checkBoard(size);
   while (getInversions(doable[0]) % 2 !== 0) {
     doable = checkBoard(size);
   }
   return doable;
 }
-
-export { getBoardOrder };

@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { getBoardOrder } from './demo.utils';
+import getBoardOrder from './demo.utils';
 import Game from './game';
-
 
 @Component({
   selector: 'app-demo',
@@ -10,7 +9,7 @@ import Game from './game';
 })
 export class DemoComponent implements OnInit, OnDestroy {
 
-  showReset: boolean = false;
+  showReset = false;
   helpOpen = false;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
@@ -33,7 +32,7 @@ export class DemoComponent implements OnInit, OnDestroy {
         case true:
           this.pic.onload = () => {
             this.ctx.drawImage(this.pic, 0, 0);
-          }
+          };
           this.pic.src = '../../mucha.jpg';
           // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
           this.showReset = true;
@@ -57,12 +56,10 @@ export class DemoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.game && this.game.saveGame();
+    if (this.game) {
+      this.game.saveGame();
+    }
   }
-
-  // swapTiles(x, y): void {
-  //   this.game && this.game.swapTiles(x, y);
-  // }
 
   resetGame() {
     this.showReset = false;
@@ -74,6 +71,6 @@ export class DemoComponent implements OnInit, OnDestroy {
       boardOrder,
       drawOrder
     );
-  };
+  }
 
 }
