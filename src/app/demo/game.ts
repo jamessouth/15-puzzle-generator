@@ -83,15 +83,20 @@ export default class Game {
     [this._boardOrder[tile], this._boardOrder[blank]] = [this._boardOrder[blank], this._boardOrder[tile]];
   }
 
+  private _getTileAndBlank(x, y): Array<number> {
+    const tile = (Math.floor(y / 82) * 5) + Math.floor(x / 82);
+    const blank = this._boardOrder.indexOf(canvArray.length - 1);
+    return [tile, blank];
+  }
+
   swapTiles(x, y): void {
     if (this._gameOver) { return; }
-    const tileClicked = (Math.floor(y / 82) * 5) + Math.floor(x / 82);
-    const blank = this._boardOrder.indexOf(canvArray.length - 1);
+    const [tileClicked, blank] = this._getTileAndBlank(x, y);
     if (this._isInvalidTile(tileClicked, blank)) { return; }
-    let interimCheck;
     const brdInd = this._boardOrder[tileClicked];
     this._updateCanvas(tileClicked, brdInd, blank);
     this._updateBoardOrder(tileClicked, blank);
+    let interimCheck;
     if (this._boardOrder[0] === 0 && this._boardOrder[4] === 4 && this._boardOrder[29] === 29 && this._boardOrder[33] === 33) {
       interimCheck = this.checkForWin(this._boardOrder);
     }
