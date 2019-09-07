@@ -33,8 +33,8 @@ export default class Game {
         );
       }
     };
-    this._pic.src = '../../mucha.jpg';
-    // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
+    // this._pic.src = '../../mucha.jpg';
+    this._pic.src = 'mucha.697365d6cee2963eb18f.jpg';
   }
 
   saveGame(): void {

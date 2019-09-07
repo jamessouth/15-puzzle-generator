@@ -33,8 +33,8 @@ export class DemoComponent implements OnInit, OnDestroy {
           this.pic.onload = () => {
             this.ctx.drawImage(this.pic, 0, 0);
           };
-          this.pic.src = '../../mucha.jpg';
-          // this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
+          // this.pic.src = '../../mucha.jpg';
+          this.pic.src = 'mucha.697365d6cee2963eb18f.jpg';
           this.showReset = true;
           break;
         case false:
