@@ -32,7 +32,7 @@ p{
 }
 canvas{
   background-color: #154a6a;
-  min-width: 410px;
+  width: 410px;
   grid-row: 1 / 2;
 }
 .helpBtn{
@@ -159,5 +159,24 @@ canvas{
     width: initial;
     grid-gap: 60px;
     margin: 0 0 5em;
+  }
+}
+@supports not (place-items: center) {//edge
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  canvas{
+    margin-bottom: 4em;
+  }
+  .helpImgStyles{
+    margin-top: 4em;
+  }
+  @media screen and (min-width: 1000px) {
+    main{
+      justify-content: space-around;
+      flex-direction: row;
+    }
   }
 }

@@ -9,8 +9,7 @@
     <canvas (click)="game && game.swapTiles($event.offsetX, $event.offsetY)" width="410" height="574">
       Your browser does not support canvas.
     </canvas>
-    <button [class.one]="!helpOpen" [class.two]="helpOpen" (click)="helpOpen = !helpOpen" type="button" class="helpBtn">
-    </button>
+    <button [class.one]="!helpOpen" [class.two]="helpOpen" (click)="helpOpen = !helpOpen" type="button" class="helpBtn"></button>
     <div class="helpImgStyles" *ngIf="helpOpen"></div>
   </main>
   <p class="bottomFlourish"></p>
