@@ -77,3 +77,8 @@ a{
     background: url("../../../assets/images/bigbg2.jpg") 50% no-repeat;
   }
 }
+@supports not (mix-blend-mode: lighten) {//edge
+  header{
+    background: none;
+  }
+}

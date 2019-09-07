@@ -9,6 +9,11 @@ button{
   	outline: none;
   }
 }
+@supports not (place-items: center) {//edge
+  #lang-select span{
+    text-align: center;
+  }
+}
 #lang-select{
   display: grid;
   grid: "larrow ctext rarrow" 60% "lcopy . remail" 40% / 52px auto 52px;

@@ -4,6 +4,11 @@
     font-weight: normal;
     font-style: normal;
 }
+@supports not (place-items: center) {//edge
+  html {
+    overflow-x: hidden;
+  }
+}
 *{
 	margin: 0;
 	padding: 0;
