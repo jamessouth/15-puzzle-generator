@@ -5,9 +5,9 @@ button{
   cursor: pointer;
   border: none;
   filter: invert(10%);
-}
-button:focus{
-	outline: none;
+  &:focus{
+  	outline: none;
+  }
 }
 #lang-select{
   display: grid;
@@ -18,25 +18,30 @@ button:focus{
   margin-bottom: 4em;
   background: url('../../../assets/images/langbanner.jpg') no-repeat center;
   background-size: cover;
+  & > a{
+    display: flex;
+    grid-area: remail;
+  }
+  & button:hover{
+    filter: brightness(110%) drop-shadow(0px 0px 7px #fff);
+  }
+  & span{
+    font-family: 'Limelight', cursive;
+    font-size: 57px;
+    color: #fbfbfb;
+    filter: drop-shadow(0px 0px 3px #fff);
+    grid-area: ctext;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover{
+      filter: drop-shadow(0px 0px 7px #fff);
+    }
+  }
 }
-#lang-select button:hover{
-  filter: brightness(110%) drop-shadow(0px 0px 7px #fff);
-}
-#lang-select span{
-  font-family: 'Limelight', cursive;
-  font-size: 57px;
-  color: #fbfbfb;
-  filter: drop-shadow(0px 0px 3px #fff);
-  grid-area: ctext;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#lang-select span:hover{
-  filter: drop-shadow(0px 0px 7px #fff);
-}
-button:nth-of-type(1), button:nth-of-type(2){
+button:nth-of-type(1),
+button:nth-of-type(2){
   background-image: url('../../../assets/images/arrow.png');
   width: 50px;
   height: 64px;
@@ -48,11 +53,8 @@ button:nth-of-type(2){
   transform: rotateZ(180deg);
   grid-area: rarrow;
 }
-#lang-select > a{
-  display: flex;
-  grid-area: remail;
-}
-#copy, #email{
+#copy,
+#email{
   transform: scale(1.5);
   height: 24px;
   width: 24px;
@@ -64,7 +66,8 @@ button:nth-of-type(2){
 #email{
   background-image: url('../../../assets/images/email.png');
 }
-#copy:hover::after, #email:hover::after{
+#copy:hover::after,
+#email:hover::after{
   position: absolute;
   font-family: monospace;
   line-height: 2;

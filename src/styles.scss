@@ -27,3 +27,16 @@ p{
   color: blue;
   text-align: center;
 }
+pre{
+  color: #80000f;
+  & code{
+    font-family: monospace;
+    white-space: pre-line;
+  }
+  & span{
+    font-family: monospace;
+  }
+}
+.greenBackground{
+  background-color: #0f8000;
+}

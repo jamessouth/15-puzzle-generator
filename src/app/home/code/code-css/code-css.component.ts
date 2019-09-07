@@ -3,8 +3,7 @@ import { OptionsService } from '../../../options.service';
 
 @Component({
   selector: 'app-code-css',
-  templateUrl: './code-css.component.html',
-  styleUrls: ['./code-css.component.scss']
+  templateUrl: './code-css.component.html'
 })
 export class CodeCssComponent implements OnInit {
   @Input() widthInPixels: number;

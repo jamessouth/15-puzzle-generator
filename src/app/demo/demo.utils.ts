@@ -26,21 +26,10 @@ function getInversions(arr: Array<number>): number {
   }
   return inversions;
 }
-function getBoardOrder(size: number): Array<Array<number>> {
+export default function getBoardOrder(size: number): Array<Array<number>> {
   let doable = checkBoard(size);
   while (getInversions(doable[0]) % 2 !== 0) {
     doable = checkBoard(size);
   }
   return doable;
 }
-function getCanvArray(height: number, width: number): Array<Array<number>> {
-  const canvArray: Array<Array<number>> = [];
-  for (let i = 0; i < height; i += 1) {
-    for (let j = 0; j < width; j += 1) {
-      canvArray.push([j * 82, i * 82]);
-    }
-  }
-  return canvArray;
-}
-
-export { getBoardOrder, getCanvArray };

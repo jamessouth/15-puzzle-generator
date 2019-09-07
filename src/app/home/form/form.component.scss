@@ -4,24 +4,24 @@ form{
   flex-direction: column;
   align-items: center;
   margin-bottom: 8em;
-}
-form div{
-  display: flex;
-  flex-direction: column;
+  & div{
+    display: flex;
+    flex-direction: column;
+  }
 }
 fieldset{
   border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  &:nth-of-type(2){
+    margin-top: 1em;
+  }
 }
 hr{
   width: 90%;
   border: .5px solid black;
   margin: auto;
-}
-fieldset:nth-of-type(2){
-  margin-top: 1em;
 }
 legend{
   font-family: 'Limelight', cursive;
@@ -36,40 +36,40 @@ input{
   display: block;
   margin: 0 auto 1em;
   width: 148px;
-}
-input[type="color"]{
-  width: 100px;
-  border: none;
-  background-color: transparent;
-  margin: 0 auto .5em;
-  height: 30px;
-}
-input[type="checkbox"]{
-  display: inline-block;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
-  width: 20px;
-  margin: 0 0 0 10px;
-}
-input[type="checkbox"]:after{
-  content: "x";
-  position: relative;
-  display: block;
-  top: 4px;
-  width: 20px;
-  text-align: center;
-  font-size: 39px;
-  line-height: 8px;
-  color: #fbfbfb;
-  background-color: #80000f;
-  height: 17px;
-}
-input[type="checkbox"]:checked:after{
-  content: "\2713";
-  font-size: 26px;
-  line-height: 17px;
-  background-color: #0f8000;
+  &[type="color"]{
+    width: 100px;
+    border: none;
+    background-color: transparent;
+    margin: 0 auto .5em;
+    height: 30px;
+  }
+  &[type="checkbox"]{
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    width: 20px;
+    margin: 0 0 0 10px;
+    &:after{
+      content: "x";
+      position: relative;
+      display: block;
+      top: 4px;
+      width: 20px;
+      text-align: center;
+      font-size: 39px;
+      line-height: 8px;
+      color: #fbfbfb;
+      background-color: #80000f;
+      height: 17px;
+    }
+    &:checked:after{
+      content: "\2713";
+      font-size: 26px;
+      line-height: 17px;
+      background-color: #0f8000;
+    }
+  }
 }
 span{
   color: transparent;
@@ -99,12 +99,12 @@ select{
   }
   fieldset{
     flex: 1;
+    &:nth-of-type(2){
+      margin-top: 0;
+      border-left: 1px solid #3a3a3a;
+    }
   }
   legend{
     margin-bottom: 1em;
-  }
-  fieldset:nth-of-type(2){
-    margin-top: 0;
-    border-left: 1px solid #3a3a3a;
   }
 }

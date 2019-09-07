@@ -6,6 +6,9 @@ main{
   place-items: center;
   grid-row-gap: 60px;
   margin-bottom: 5em;
+  & > button{
+    grid-row: 2 / 3;
+  }
 }
 h1{
   margin: 2em auto 2.5em;
@@ -31,9 +34,6 @@ canvas{
   background-color: #154a6a;
   min-width: 410px;
   grid-row: 1 / 2;
-}
-main > button{
-  grid-row: 2 / 3;
 }
 .helpBtn{
   width: 205px;
@@ -146,12 +146,12 @@ main > button{
   main{
     margin: 0 auto 7em;
     width: 90%;
+    & > button{
+      grid-row: 1 / 2;
+    }
   }
   canvas{
     grid-row: 1 / 4;
-  }
-  main > button{
-    grid-row: 1 / 2;
   }
 }
 @media screen and (min-width: 1000px) {

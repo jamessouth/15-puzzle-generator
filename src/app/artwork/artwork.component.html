@@ -7,7 +7,7 @@
   <ul>
     <li *ngFor="let art of artwork">
       <div [attr.class]="art.class" [attr.title]="art.title"></div>
-      <span>{{art.title}}</span> {{art.year}}</li>
+      <span><a rel="noopener noreferrer" [href]="art.link">{{art.title}}</a></span> {{art.year}}</li>
   </ul>
   <p class="bottomFlourish"></p>
 </div>

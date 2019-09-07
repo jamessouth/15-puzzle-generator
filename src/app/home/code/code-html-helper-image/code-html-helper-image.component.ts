@@ -3,8 +3,7 @@ import { OptionsService } from '../../../options.service';
 
 @Component({
   selector: 'app-code-html-helper-image',
-  templateUrl: './code-html-helper-image.component.html',
-  styleUrls: ['./code-html-helper-image.component.scss']
+  templateUrl: './code-html-helper-image.component.html'
 })
 export class CodeHtmlHelperImageComponent implements OnInit {
 
