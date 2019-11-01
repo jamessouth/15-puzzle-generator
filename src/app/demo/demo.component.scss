@@ -35,6 +35,12 @@ canvas{
   width: 410px;
   grid-row: 1 / 2;
 }
+button{
+  &:focus{
+    outline: none;
+    box-shadow: 10px 10px #154a6a;
+  }
+}
 .helpBtn{
   width: 205px;
   height: 54px;
@@ -51,9 +57,6 @@ canvas{
 }
 .two{
   background-image: url('../../assets/images/hide.png'), linear-gradient(to bottom, #f6a87a 0%, #a54121 100%);
-}
-.helpBtn:focus{
-  border-color: #154a6a;
 }
 @keyframes stretch {
   0% {
@@ -99,47 +102,41 @@ canvas{
   background: url('../../assets/images/mucha.jpg') center/contain no-repeat;
 }
 @media screen and (min-width: 510px) {
-  .topFlourish::before{
-    content: '';
-    display: block;
-    position: absolute;
-    top: -80px;
-    width: 200px;
-    height: 210px;
-    background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
+  .topFlourish{
+    &::before,
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: -80px;
+      width: 200px;
+      height: 210px;
+      background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
+    }
+    &::after{
+      right: 0;
+      transform: rotateY(180deg);
+    }
   }
-  .topFlourish::after{
-    content: '';
-    display: block;
-    position: absolute;
-    top: -80px;
-    right: 0;
-    width: 200px;
-    height: 210px;
-    background: url('../../assets/images/flourishes.png') 0 -3px no-repeat;
-    transform: rotateY(180deg);
-  }
-  .bottomFlourish::before{
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -45px;
-    transform: rotateY(180deg);
-    left: 0;
-    width: 200px;
-    height: 197px;
-    background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
-    z-index: -1;
-  }
-  .bottomFlourish::after{
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -45px;
-    right: 0;
-    width: 200px;
-    height: 197px;
-    background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
+  .bottomFlourish{
+    &::before,
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -45px;
+      width: 200px;
+      height: 197px;
+      background: url('../../assets/images/flourishes.png') -3px -218px no-repeat;
+    }
+    &::before{
+      transform: rotateY(180deg);
+      left: 0;
+      z-index: -1;
+    }
+    &::after{
+      right: 0;
+    }
   }
 }
 @media screen and (min-width: 800px) {
