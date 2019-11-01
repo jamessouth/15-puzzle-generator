@@ -11,9 +11,6 @@ form{
 }
 fieldset{
   border: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   &:nth-of-type(2){
     margin-top: 1em;
   }
@@ -35,6 +32,7 @@ legend{
 input{
   display: block;
   margin: 0 auto 1em;
+  outline: none;
   width: 148px;
   &[type="color"]{
     width: 100px;
@@ -42,6 +40,16 @@ input{
     background-color: transparent;
     margin: 0 auto .5em;
     height: 30px;
+    &:focus{
+      border: 3px double #700080;
+    }
+  }
+  &[type="number"],
+  &[type="text"]{
+    &:focus{
+      background-color: #700080;
+      color: #fbfbfb;
+    }
   }
   &[type="checkbox"]{
     display: inline-block;
@@ -69,6 +77,10 @@ input{
       line-height: 17px;
       background-color: #0f8000;
     }
+    &:focus{
+      border-top: 3px solid #700080;
+      border-bottom: 13px double #700080;
+    }
   }
 }
 span{
@@ -78,8 +90,16 @@ label{
   display: block;
   text-align: center;
 }
+.checks{
+  height: 30px;
+}
 select{
+  outline: none;
 	margin-bottom: 1em;
+  &:focus{
+    background-color: #700080;
+    color: #fbfbfb;
+  }
 }
 .warning{
   color: #e1e1e1;

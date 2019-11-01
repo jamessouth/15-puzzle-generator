@@ -5,9 +5,7 @@ button{
   cursor: pointer;
   border: none;
   filter: invert(10%);
-  &:focus{
-  	outline: none;
-  }
+  outline: none;
 }
 @supports not (place-items: center) {//edge
   #lang-select span{
@@ -24,11 +22,40 @@ button{
   background: url('../../../assets/images/langbanner.jpg') no-repeat center;
   background-size: cover;
   & > a{
-    display: flex;
+    display: block;
     grid-area: remail;
+    transform: scale(1.5);
+    height: 24px;
+    width: 24px;
+    background-image: url('../../../assets/images/email.png');
+    background-repeat: no-repeat;
+    &:hover,
+    &:focus{
+      filter: drop-shadow(0px 0px 7px #fff);
+      outline: none;
+      &:after{
+        position: absolute;
+        font-family: monospace;
+        line-height: 2;
+        top: 26px;
+        text-align: center;
+        font-size: 8px;
+        color: white;
+        border-radius: 3px;
+        width: 90px;
+        height: 16px;
+        background-color: black;
+        content: 'send via email';
+        right: 0;
+      }
+    }
   }
   & button:hover{
-    filter: brightness(110%) drop-shadow(0px 0px 7px #fff);
+    filter: drop-shadow(0px 0px 7px #fff);
+  }
+  & button:focus{
+    background-color: #700080;
+    filter: drop-shadow(0px 0px 7px #fff);
   }
   & span{
     font-family: 'Limelight', cursive;
@@ -58,21 +85,14 @@ button:nth-of-type(2){
   transform: rotateZ(180deg);
   grid-area: rarrow;
 }
-#copy,
-#email{
+#copy{
   transform: scale(1.5);
   height: 24px;
   width: 24px;
-}
-#copy{
   background-image: url('../../../assets/images/copy.png');
   grid-area: lcopy;
 }
-#email{
-  background-image: url('../../../assets/images/email.png');
-}
-#copy:hover::after,
-#email:hover::after{
+#copy:hover::after{
   position: absolute;
   font-family: monospace;
   line-height: 2;
@@ -84,14 +104,8 @@ button:nth-of-type(2){
   width: 90px;
   height: 16px;
   background-color: black;
-}
-#copy:hover::after{
   content: 'copy to clipboard';
   left: 0;
-}
-#email:hover::after{
-  content: 'send via email';
-  right: 0;
 }
 @media screen and (pointer: fine) and (hover: hover) {
   #lang-select{
