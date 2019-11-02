@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   hasLeftoverPxWide: boolean;
   hasLeftoverPxHigh: boolean;
   codeReady: boolean;
+  inView: boolean;
 
   constructor() {}
 
