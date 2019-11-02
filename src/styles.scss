@@ -1,8 +1,10 @@
 @font-face {
-    font-family: 'uppereastsideregular';
-    src: url('./assets/UpperEastSide-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'uppereastsideregular';
+  src: url('./assets/uppereastside2.woff2') format('woff2'),
+       url('./assets/uppereastside.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 @supports not (place-items: center) {//edge
   html {

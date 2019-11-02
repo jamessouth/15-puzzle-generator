@@ -17,6 +17,17 @@ export class LanguageSelectComponent implements OnInit {
   currentIndex = 0;
   languages = ['HTML', 'CSS', 'JS'];
   lang: string;
+  inView = false;
+  observer = new IntersectionObserver(
+    function(entries, observer) {
+      console.log(entries, observer);
+    },
+    {
+      root: null,
+      rootMargin: '0px 0px 40px 0px',
+      threshold: 0.1,
+    }
+);
 
   constructor(
     private data: OptionsService,
@@ -35,6 +46,13 @@ export class LanguageSelectComponent implements OnInit {
         }
         this.data.changeLang(this.languages[this.currentIndex % 3]);
       });
+
+
+
+
+
+
+
   }
 
   onLangChange(dir: string) {
