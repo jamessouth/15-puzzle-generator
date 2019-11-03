@@ -11,12 +11,12 @@ export class HomeComponent implements OnInit {
   widthInPixels: number;
   heightInTiles: number;
   heightInPixels: number;
+  inView = false;
   tileWidth = 0;
   tileHeight = 0;
   hasLeftoverPxWide: boolean;
   hasLeftoverPxHigh: boolean;
   codeReady: boolean;
-  inView: boolean;
 
   constructor() {}
 
@@ -54,6 +54,10 @@ export class HomeComponent implements OnInit {
   handleHeightPixels(e) {
     this.heightInPixels = e;
     this.updateHeightProps();
+  }
+
+  handleInView(e) {
+    this.inView = e;
   }
 
 }

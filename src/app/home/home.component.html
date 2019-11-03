@@ -5,12 +5,13 @@
     (widthInPixels)="handleWidthPixels($event)"
     (heightInTiles)="handleHeightTiles($event)"
     (heightInPixels)="handleHeightPixels($event)"
+    (inView)="handleInView($event)"
     [tileWidth]="tileWidth"
     [tileHeight]="tileHeight"
     [hasLeftoverPxWide]="hasLeftoverPxWide"
     [hasLeftoverPxHigh]="hasLeftoverPxHigh"
   ></app-form>
-  <app-language-select [codeReady]="codeReady"></app-language-select>
+  <app-language-select [inView]="inView" [codeReady]="codeReady"></app-language-select>
   <app-code [widthInTiles]="widthInTiles" [tileWidth]="tileWidth" [widthInPixels]="widthInPixels" [heightInTiles]="heightInTiles" [heightInPixels]="heightInPixels" [codeReady]="codeReady"></app-code>
 </main>
 <app-footer></app-footer>

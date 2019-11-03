@@ -13,6 +13,7 @@ import { langSelectAnimation } from '../../animations';
 })
 export class LanguageSelectComponent implements OnInit {
   @Input() codeReady: boolean;
+  @Input() inView: boolean;
 
   currentIndex = 0;
   languages = ['HTML', 'CSS', 'JS'];
