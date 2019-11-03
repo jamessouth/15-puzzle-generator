@@ -1,4 +1,4 @@
-<div id="lang-select">
+<div id="lang-select" *ngIf="inView">
   <button (click)="onLangChange('l')"></button>
   <span @fadeInOut *ngIf="lang === 'HTML'">{{lang}}</span>
   <span @fadeInOut *ngIf="lang === 'CSS'">{{lang}}</span>

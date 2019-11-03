@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { OptionsService } from '../../options.service';
 
 @Component({
@@ -16,11 +16,28 @@ export class FormComponent implements OnInit {
   @Output() widthInPixels = new EventEmitter<number>();
   @Output() heightInTiles = new EventEmitter<number>();
   @Output() heightInPixels = new EventEmitter<number>();
+  @Output() inView = new EventEmitter<boolean>();
+
+  @ViewChild('sent', {static: true}) sentinel;
 
   nums = [2, 3, 4, 5, 6, 7, 8];
   color: string;
   path: string;
   helperImage: boolean;
+  IOfunc = function(entries, observer) {
+     if (entries[0].isIntersecting) {
+       this.inView.emit(true);
+       observer.unobserve(entries[0].target);
+     }
+  };
+  observer = new IntersectionObserver(
+    this.IOfunc.bind(this),
+    {
+      root: null,
+      rootMargin: '0px 0px 40px 0px',
+      threshold: 0.1,
+    }
+  );
 
   constructor(private data: OptionsService) {}
 
@@ -28,6 +45,7 @@ export class FormComponent implements OnInit {
     this.data.currentColor$.subscribe(color => this.color = color);
     this.data.currentPath$.subscribe(path => this.path = path);
     this.data.currentHelpImg$.subscribe(helperImage => this.helperImage = helperImage);
+    this.observer.observe(this.sentinel.nativeElement);
   }
 
   onWidthPixelsChange(val) {

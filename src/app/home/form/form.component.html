@@ -19,7 +19,7 @@
       <p class="warning" *ngIf="tileWidth !== tileHeight">Tiles must be square:&nbsp;&nbsp;Tile Width: {{tileWidth}}, Tile Height: {{tileHeight}}</p>
       <p class="warning" *ngIf="hasLeftoverPxWide">The number of tiles wide must divide evenly into the width in pixels for there to not be any leftover.&nbsp;&nbsp;Please adjust the image or try a different number of tiles.</p>
       <p class="warning" *ngIf="hasLeftoverPxHigh">The number of tiles high must divide evenly into the height in pixels for there to not be any leftover.&nbsp;&nbsp;Please adjust the image or try a different number of tiles.</p>
-      <p>The canvas will have the same dimensions as the image you use.&nbsp;&nbsp;Edit your image as necessary such that each tile will be the same size with no remainder pixels.</p>
+      <p #sent>The canvas will have the same dimensions as the image you use.&nbsp;&nbsp;Edit your image as necessary such that each tile will be the same size with no remainder pixels.</p>
     </fieldset>
     <hr>
     <fieldset id="extras">
