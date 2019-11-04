@@ -60,9 +60,7 @@ input{
     margin: 0 0 0 10px;
     &:after{
       content: "x";
-      position: relative;
       display: block;
-      top: 4px;
       width: 20px;
       text-align: center;
       font-size: 39px;
@@ -78,7 +76,6 @@ input{
       background-color: #0f8000;
     }
     &:focus{
-      border-top: 3px solid #700080;
       border-bottom: 13px double #700080;
     }
   }
@@ -96,6 +93,7 @@ label{
 select{
   outline: none;
 	margin-bottom: 1em;
+  width: 40px;
   &:focus{
     background-color: #700080;
     color: #fbfbfb;

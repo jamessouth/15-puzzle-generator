@@ -82,5 +82,8 @@ a{
 @supports not (mix-blend-mode: lighten) {//edge
   header{
     background: none;
+    &:before{
+      color: #80000f;
+    }
   }
 }
