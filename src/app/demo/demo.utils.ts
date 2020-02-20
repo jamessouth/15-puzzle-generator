@@ -1,10 +1,15 @@
 function getRands(amt: number): Array<number> {
+  const arr = [];
   const nums = new Set();
   while (nums.size < amt) {
     const n: number = Math.floor(Math.random() * amt);
     nums.add(n);
   }
-  return Array.from(nums);
+  const it = nums.values();
+  for(const v of it) {
+    arr.push(v);
+  }
+  return arr;
 }
 function checkBoard(size: number): Array<Array<number>> {
   const randos: Array<number> = getRands(size - 1);

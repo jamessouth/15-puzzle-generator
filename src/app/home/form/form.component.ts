@@ -24,14 +24,14 @@ export class FormComponent implements OnInit {
   color: string;
   path: string;
   helperImage: boolean;
-  IOfunc = function(entries, observer) {
+  intObsFunc = function(entries, observer) {
      if (entries[0].isIntersecting) {
        this.inView.emit(true);
        observer.unobserve(entries[0].target);
      }
-  };
+  }; // tslint:disable-next-line
   observer = new IntersectionObserver(
-    this.IOfunc.bind(this),
+    this.intObsFunc.bind(this),
     {
       root: null,
       rootMargin: '0px 0px 40px 0px',
